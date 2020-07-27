@@ -1,0 +1,41 @@
+
+ **********************************
+ **   PENELOPE  (version 2012)   **
+ **********************************
+
+ EMIN = 5.0000E+01 eV,  EMAX = 1.5000E+04 eV
+
+
+ **********************
+ **   1st material   **
+ **********************
+
+ Material data file: Eagle XG.MAT        
+
+ *** Simulation parameters:
+     Electron absorption energy = 5.0000E+01 eV
+       Photon absorption energy = 5.0000E+01 eV
+     Positron absorption energy = 5.0000E+01 eV
+      C1 = 2.0000E-01,       C2 = 2.0000E-01
+     WCC = 5.0000E+01 eV,   WCR = 5.0000E+01 eV
+
+ PENELOPE (v. 2012)  Material data file ...............
+ Material: Eagle XG                                                      
+ Mass density = 2.38000000E+00 g/cm**3
+ Number of elements in the molecule = 14
+    Element: Si (Z=14), atoms/molecule = 3.30940563E-01
+    Element: Al (Z=13), atoms/molecule = 1.02960033E-01
+    Element: B  (Z= 5), atoms/molecule = 9.31551209E-02
+    Element: Ca (Z=20), atoms/molecule = 2.98277816E-02
+    Element: Mg (Z=12), atoms/molecule = 9.80575643E-03
+    Element: Sr (Z=38), atoms/molecule = 2.45147509E-03
+    Element: Sn (Z=50), atoms/molecule = 3.11228333E-04
+    Element: Ba (Z=56), atoms/molecule = 2.45226179E-04
+    Element: Fe (Z=26), atoms/molecule = 1.96037032E-04
+    Element: Sb (Z=51), atoms/molecule = 9.80283310E-05
+    Element: As (Z=33), atoms/molecule = 9.79664134E-05
+    Element: Zr (Z=40), atoms/molecule = 7.36982195E-05
+    Element: Ti (Z=22), atoms/molecule = 9.79036898E-05
+    Element: O  (Z= 8), atoms/molecule = 1.00000000E+00
+ Mean excitation energy = 1.24154391E+02 eV
+ PENELOPE (v. 2012)  End of material data file ........

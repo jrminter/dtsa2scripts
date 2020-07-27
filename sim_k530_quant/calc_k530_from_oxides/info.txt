@@ -1,0 +1,15 @@
+UW-Madison Geo777 students have evaluated 3 Kakanui megacrysts, as well as NIST K530 glass
+which potentially may be a replacement for the K412 standard which is no longer available. They report
+on some promising results for these 4 materials here at this conference, e.g. Kakanui augite (Table 1).
+
+k530jf  = defineMat(("O",   "Mg",   "Al",  "Si",  "Ca",  "Fe", ),
+	                 (0.4318,0.1152,0.0510,0.2151,0.1068,0.0801),
+	                "K530-JF", 2.66)
+
+Mg: 0.1152  
+Al: 0.0510
+Si: 0.2151
+Ca: 0.1068
+Fe: 0.0801
+
+

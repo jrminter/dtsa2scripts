@@ -1,0 +1,19 @@
+St 5006 Orthoclase
+St 5006 Orthoclase
+TakeOff = 35.0  KiloVolt = 15.0  Density =  2.560
+
+Standard Description
+Oxide and Elemental Composition
+
+Average Total Oxygen:       45.990     Average Total Weight%:  100.000
+Average Calculated Oxygen:  45.982     Average Atomic Number:   11.846
+Average Excess Oxygen:        .008     Average Atomic Weight:   21.411
+
+ELEM:      K2O   Al2O3    SiO2       O
+XRAY:      ka      ka      ka      ka 
+OXWT:   16.925  18.309  64.758    .008
+ELWT:   14.050   9.690  30.270  45.990
+KFAC:    .1227   .0762   .2434   .1569
+ZCOR:   1.1447  1.2712  1.2439  2.9311
+AT% :    7.693   7.689  23.076  61.542
+24 O:    3.000   2.999   8.999  24.000

@@ -1,0 +1,18 @@
+ #  Results from PENEPMA.
+ #  Probability of emission of characteristic photons. All in 1/(sr*electron).
+ #    P = primary photons (from electron interactions);
+ #    C = flourescence from characteristic x rays;
+ #    B = flourescence from bremsstrahlung quanta;
+ #   TF = C+B, total fluorescence;
+ #    T = P+C+B, total intensity;
+ #  unc = statistical uncertainty (3 sigma).
+ #
+ # IZ S0 S1  E (eV)      P            unc       C            unc       B            unc       TF           unc       T            unc
+   13 L3 M1  7.0570E+01  9.223906E-06 1.51E-07  5.487237E-10 1.16E-09  3.851592E-10 2.78E-11  9.338829E-10 1.19E-09  9.224840E-06 1.51E-07
+   13 L2 M1  7.1040E+01  4.865184E-06 1.10E-07  0.000000E+00 0.00E+00  2.184717E-10 2.09E-11  2.184717E-10 2.09E-11  4.865402E-06 1.10E-07
+   13 L1 M3  1.1418E+02  4.859131E-07 3.46E-08  5.487237E-10 1.16E-09  4.956174E-11 9.96E-12  5.982855E-10 1.17E-09  4.865114E-07 3.47E-08
+   13 L1 M2  1.2230E+02  2.518733E-07 2.49E-08  0.000000E+00 0.00E+00  2.622549E-11 7.24E-12  2.622549E-11 7.24E-12  2.518995E-07 2.49E-08
+   13  K L2  1.4863E+03  2.264778E-05 2.37E-07  0.000000E+00 0.00E+00  5.706423E-08 3.38E-10  5.706423E-08 3.38E-10  2.270484E-05 2.37E-07
+   13  K L3  1.4867E+03  4.475726E-05 3.33E-07  0.000000E+00 0.00E+00  1.133499E-07 4.77E-10  1.133499E-07 4.77E-10  4.487061E-05 3.33E-07
+   13  K M2  1.5576E+03  1.338888E-07 1.82E-08  0.000000E+00 0.00E+00  3.362642E-10 2.59E-11  3.362642E-10 2.59E-11  1.342251E-07 1.82E-08
+   13  K M3  1.5576E+03  2.749110E-07 2.61E-08  0.000000E+00 0.00E+00  6.885304E-10 3.71E-11  6.885304E-10 3.71E-11  2.755996E-07 2.61E-08

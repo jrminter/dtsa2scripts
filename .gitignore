@@ -1,39 +1,35 @@
-# History files
+.Rproj.user
 .Rhistory
-.Rapp.history
-
-# Session Data files
 .RData
+.DS_Store
+README.html
+# don't track generated PDF files
+anaSirion/R/*.pdf
+anaSirion/Rmd/*.nb.html
+# don't track generated .rpl and .raw files
 
-# User-specific files
-.Ruserdata
+# ana-from-cmd-line dir
+ana-from-cmd-line/*.html
+ana-from-cmd-line/*.pdf
 
-# Example code in package build process
-*-Ex.R
 
-# Output files from R CMD build
-/*.tar.gz
+.ipynb_checkpoints
+.ipynb_checkpoints/*.*
 
-# Output files from R CMD check
-/*.Rcheck/
+R/ana-ZnO-on-Si/*.html
+R/ana-ZnO-on-Si/ana-ZnO-on-Si.pdf
 
-# RStudio files
-.Rproj.user/
-
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
+#don't track (or remove) html files written by testMixture.py
+html/*html
+rplScripts/.DS_Store
+rplScripts/*.raw
+rplScripts/*.rpl
+rplScripts/.ipynb_checkpoints
+mc3Scripts/work/*
+EDS-TM002/*.md
+EDS-TM002/*.html
+simLineInMatrix/csv/*.xlx
+simLineInMatrix/csv/*.csv
+mc3Scripts/dat/sim
+mc3Scripts/dat/png/*.png
+mc3Scripts/dat/pdf/*.pdf

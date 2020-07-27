@@ -1,0 +1,17 @@
+K227 Quant Info
+
+El  wt %       EDS Std               Element Mass Fraction	Atomic Fraction
+--  ----
+Si   9.34      Benitoite            Silicon	0.0912±0.0006	0.1971±0.0013
+Pb  74.26      PbS   7.6 gm/cm3     Lead	0.7086±0.0025	0.2076±0.0007
+O   16.40      from stoichiometry   Oxygen	0.1569±0.0132	0.5953±0.0501
+
+Benitoite Standard
+is BaTi(Si3O9).
+
+Analysis at 5kV using SiO and Pb standards
+
+Element	Mass Fraction	Atomic Fraction
+Oxygen	0.1569±0.0132	0.5953±0.0501
+Silicon	0.0912±0.0006	0.1971±0.0013
+Lead	0.7086±0.0025	0.2076±0.0007

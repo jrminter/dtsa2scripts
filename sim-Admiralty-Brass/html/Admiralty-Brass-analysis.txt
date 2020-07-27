@@ -1,0 +1,21 @@
+Admiralty-Brass analysis
+
+
+
+Cuprite
+https://en.wikipedia.org/wiki/Cuprite
+Cu2O
+density: 6.1   6.11 xl
+http://webmineral.com/data/Cuprite.shtml#.WmkGIpOplR0
+
+
+Willemite
+http://webmineral.com/data/Willemite.shtml#.WmkG_pOplR0
+Zn2SiO4
+density 4.05 (avg) 4.35 xl
+
+Cassiterite	
+SnO2
+density 6.9 avg 7.15 xl
+
+

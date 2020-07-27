@@ -1,0 +1,108 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.0
+
+Running C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/simulateCoatedK411Ex.py
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, O K-L3, Mg K-L3, Si K-L3, Si K-M3, Ca K-L3, Ca K-M3, Fe K-L3, Fe K-M3, Fe L3-M5], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of K411] at 20.0 keV + CSF + BSF\vrml2216604473819239177.wrl
+[Image[512,512,C K-L3], Image[512,512,O K-L3], Image[512,512,Mg K-L3], Image[512,512,Si K-L3], Image[512,512,Si K-M3], Image[512,512,Ca K-L3], Image[512,512,Ca K-M3], Image[512,512,Fe K-L3], Image[512,512,Fe K-M3], Image[512,512,Fe L3-M5]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of K411] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of K411] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of K411] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of K411] at 20.0 keV + CSF + BSF
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, O K-L3, F K-L3, P K-L3, P K-M3, Ca K-L3, Ca K-M3, Sr K-L3, Sr K-M3, Sr L3-M5], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of apatite] at 20.0 keV + CSF + BSF\vrml6192720885805284764.wrl
+[Image[512,512,C K-L3], Image[512,512,O K-L3], Image[512,512,F K-L3], Image[512,512,P K-L3], Image[512,512,P K-M3], Image[512,512,Ca K-L3], Image[512,512,Ca K-M3], Image[512,512,Sr K-L3], Image[512,512,Sr K-M3], Image[512,512,Sr L3-M5]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of apatite] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of apatite] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of apatite] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of apatite] at 20.0 keV + CSF + BSF
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, O K-L3, Mg K-L3], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of MgO] at 20.0 keV + CSF + BSF\vrml1919386412150624355.wrl
+[Image[512,512,C K-L3], Image[512,512,O K-L3], Image[512,512,Mg K-L3]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of MgO] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of MgO] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of MgO] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of MgO] at 20.0 keV + CSF + BSF
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, Si K-L3, Si K-M3], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of Si] at 20.0 keV + CSF + BSF\vrml931435542440916837.wrl
+[Image[512,512,C K-L3], Image[512,512,Si K-L3], Image[512,512,Si K-M3]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Si] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Si] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Si] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Si] at 20.0 keV + CSF + BSF
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, Fe K-L3, Fe K-M3, Fe L3-M5], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of Fe] at 20.0 keV + CSF + BSF\vrml1262670245805620137.wrl
+[Image[512,512,C K-L3], Image[512,512,Fe K-L3], Image[512,512,Fe K-M3], Image[512,512,Fe L3-M5]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Fe] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Fe] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Fe] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of Fe] at 20.0 keV + CSF + BSF
+{'Characteristic Accumulator': True, 'Print Accumulators': False, 'TrajSize': 512, 'Transitions': [C K-L3, F K-L3, Ca K-L3, Ca K-M3], 'Trajectories': 2e-06, 'PhiRhoZ': 2e-06, 'Brem Fluor Accumulator': True, 'Emission Size': 512, 'VRML': 40, 'resln': 1.0, 'TrajCount': 100, 'Output': 'C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim', 'Char Fluor Accumulator': True, 'Emission Images': 2e-06}
+VRML in C:\Users\jrminter\Documents\git\dtsa2Scripts\mc3Scripts\dat\sim\MC simulation of a multilayer film [20 nm of C_50000 nm of CaF2] at 20.0 keV + CSF + BSF\vrml8185923419495205370.wrl
+[Image[512,512,C K-L3], Image[512,512,F K-L3], Image[512,512,Ca K-L3], Image[512,512,Ca K-M3]]
+C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of CaF2] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of CaF2] at 20.0 keV + CSF + BSF
+Writing emission images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of CaF2] at 20.0 keV + CSF + BSF
+Writing trajectory images to C:/Users/jrminter/Documents/git/dtsa2Scripts/mc3Scripts/dat/sim/MC simulation of a multilayer film [20 nm of C_50000 nm of CaF2] at 20.0 keV + CSF + BSF
+Done!
+This script required 100.654 min
+...or 1.678 hr
+Elapse: 1:40:39.7
+1> dir()
+['App', 'DataManager', 'Database', 'MainFrame', 'PathSep', 'ScriptableSpectrum', 'StdErr', 'StdOut', '__builtins__', '__doc__', '__name__', '__package__', '_script', 'addImage', 'addTrace', 'annotComposition', 'apatite', 'apatiteSim', 'applyDetectors', 'atomicShell', 'backscatter', 'bcPeakIntegral', 'c', 'caf2', 'caf2Sim', 'clear', 'clearAnnotation', 'clearSpectra', 'compare', 'compton', 'copyToClipboard', 'countEvents', 'createMaterial', 'cs', 'csvDir', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'defaultStandards', 'delta', 'describe', 'det', 'dets', 'display', 'displayAll', 'displayMac', 'do', 'dose', 'dt2', 'dump', 'dumpComps', 'e0', 'editMaterial', 'electronRange', 'element', 'elements', 'end', 'epd', 'epq', 'ept', 'epu', 'et', 'execute', 'exit', 'fe', 'feSim', 'fi', 'filmThickness', 'findDetector', 'findSpectra', 'findStandards', 'fitSpectrum', 'fromXML', 'getEfficiency', 'getElement', 'getElements', 'getMac', 'getTransitionSet', 'gitHom', 'help', 'helpStr', 'ht', 'ii', 'imgSize', 'imgSzUm', 'init_dets', 'installPlugIn', 'ionizationRange', 'isTerminated', 'jarray', 'jio', 'jl', 'jmg', 'ju', 'jutil', 'k411', 'k411Sim', 'layers', 'listCalibrations', 'listData', 'listDetectors', 'listEdges', 'listMaterials', 'listSpectra', 'listTransitions', 'ls', 'lt', 'mac', 'majorTransitionSets', 'majorTransitions', 'massFraction', 'material', 'maxThickness', 'mc3', 'mgo', 'mgoSim', 'mindat', 'mixture', 'msg', 'multiQuant', 'nTraj', 'nm', 'nm3', 'normalizeFilename', 'od', 'os', 'parseChemicalFormula', 'pc', 'phirhoz', 'prjDir', 'przDepUm', 'quant', 'quantify', 'readSpectra', 'readSpectrum', 'readTextFile', 'relPrj', 'report', 'reportPath', 'rerun', 'resln', 'rptDir', 'run', 's10', 'sName', 'saveSpectra', 'select', 'selectByDetector', 'selected', 'selectedChannels', 'selectedRegions', 'setAnnotation', 'shutil', 'si', 'siSim', 'simDir', 'simulate', 'spcDir', 'spectra', 'spectrumFromXML', 'start', 'string', 'sum', 'sys', 'tNmC', 'tabulate', 'tabulateAsOxides', 'tabulateDetCalibrations', 'terminated', 'textFile', 'time', 'toXML', 'tr', 'transition', 'trs', 'vmrlEl', 'windowTransmission', 'wrap', 'writeTextFile', 'wrkDir', 'xrayRange', 'xrts', 'xtraParams', 'z', 'zaf', 'zafU']
+1> help(fitSpectrum)
+fitSpectrum(spec, nIter=5)
+    Fit spec, an ISpectrumData object, with a series of Gaussian's centered on the characteristic x-ray energies.  spec must define a detector and a StandardComposition in it's properties.
+2> listSpectra()
+Name	Spectrum
+s10	20-nm-C-on-MgO-20-kV-20000-Traj
+3> listSpectra()
+Name	Spectrum
+s11	20-nm-C-on-K411-20-kV-20000-Traj
+4> fitSpectrum(s11)
+{'Brem': Bremsstrahlung[20-nm-C-on-K411-20-kV-20000-Traj], 'Result': gov.nist.microanalysis.EPQLibrary.SpectrumFitResult@1ca70891, 'Spectrum': 20-nm-C-on-K411-20-kV-20000-Traj, 'Fit': BestFit[20-nm-C-on-K411-20-kV-20000-Traj], 'Char': Characteristic[20-nm-C-on-K411-20-kV-20000-Traj]}
+5> a = fitSpectrum(s11)
+6> a.display()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'dict' object has no attribute 'display'
+7> a = wrap(a)
+8> a.display()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Apps\DTSA\Jupiter\Lib\dtsa2\__init__.py", line 156, in display
+    display(self.wrapped)
+  File "C:\Apps\DTSA\Jupiter\Lib\dtsa2\__init__.py", line 818, in display
+    DataManager.addSpectrum((s.getWrapped() if isinstance(s, ScriptableSpectrum) else s), True)
+TypeError: addSpectrum(): 1st arg can't be coerced to gov.nist.microanalysis.EPQLibrary.ISpectrumData
+9> a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Apps\DTSA\Jupiter\Lib\dtsa2\__init__.py", line 95, in __repr__
+    return self.wrapped.toString()
+AttributeError: 'dict' object has no attribute 'toString'
+10> a = fitSpectrum(s11)
+11> a
+{'Brem': Bremsstrahlung[20-nm-C-on-K411-20-kV-20000-Traj], 'Result': gov.nist.microanalysis.EPQLibrary.SpectrumFitResult@1f68fe6a, 'Spectrum': 20-nm-C-on-K411-20-kV-20000-Traj, 'Fit': BestFit[20-nm-C-on-K411-20-kV-20000-Traj], 'Char': Characteristic[20-nm-C-on-K411-20-kV-20000-Traj]}
+12> a['Brem'].display()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'gov.nist.microanalysis.EPQLibrary.SpectrumUtils$1S' object has no attribute 'display'
+13> b = a['Brem']
+14> b
+Bremsstrahlung[20-nm-C-on-K411-20-kV-20000-Traj]
+15> b.display()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'gov.nist.microanalysis.EPQLibrary.SpectrumUtils$1S' object has no attribute 'display'
+16> b = wrap(b)
+17> b.display()
+18> c=wrap(a['Char])
+  File "<stdin>", line 1
+    c=wrap(a['Char])
+           ^
+SyntaxError: no viable alternative at input '<EOF>'
+19> c=wrap(a['Char'])
+20> c.display()

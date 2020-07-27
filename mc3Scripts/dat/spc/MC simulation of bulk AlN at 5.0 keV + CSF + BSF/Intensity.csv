@@ -1,0 +1,31 @@
+MC simulation of bulk AlN at 5.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	1268769
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+N K-L2	4663.622150666924	3126.307950707351
+N K-L3	9299.156867616597	6233.787196063785
+Al K-L2	3369.158094737532	3284.0683706450836
+Al K-L3	6687.383476703011	6518.490358917591
+Al K-M3	40.86601189455187	39.9507571891563
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	126381
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+N K-L2	1.7900777428436774	0.6693388069335043
+N K-L3	3.5693744471885918	1.334646410487638
+Al K-L2	9.936716353214365	6.928970467703976
+Al K-L3	19.723215974034094	13.753193324072361
+Al K-M3	0.0	0.0
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	126502
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+N K-L2	3.2357718620098495	0.44927553843803725
+N K-L3	6.452055754205602	0.895845240833011
+Al K-L2	0.0	0.0
+Al K-L3	0.0	0.0
+Al K-M3	0.0	0.0

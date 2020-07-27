@@ -1,0 +1,143 @@
+---
+title: "DTSA-II Analysis from the command line"
+author: "J. R. Minter"
+date: 'Started: 2018-10-19, Last modified: 2018-10-18'
+output:
+  html_document:
+    css: ../inc/jm-gray-vignette.css
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+encoding: UTF-8
+abstract: |
+  DTSA-II permits analysis from the command line.
+---
+
+```{r setup, cache = F, echo = F, message = F, warning = F, tidy = F}
+library(knitr)
+library(readr)
+library(pander)
+library(here)
+library(dplyr)
+library(ggplot2)
+# make this an external chunk that can be included in any file
+options(width = 72)
+opts_chunk$set(echo = F, message = F, warning = F)
+# opts_chunk$set(message = F, error = F, warning = F, comment = NA, fig.align = 'center', dpi = 100, tidy = F, cache.path = '.cache/', fig.path = 'figure/')
+
+panderOptions('table.split.table', Inf)
+
+options(xtable.type = 'html')
+knit_hooks$set(inline = function(x) {
+  if(is.numeric(x)) {
+    round(x, getOption('digits'))
+  } else {
+    paste(as.character(x), collapse = ', ')
+  }
+})
+```
+
+# Introduction
+
+DTSA-II provides a command line interface that permits the user to
+script analyses using Python (actually Jython). This makes the analysis
+more reproducible. This document shows some examples.
+
+
+# Example ZAF analysis
+
+This was inspired by the example in N. Ritchie's example of
+ZAF analysis using specific standards in **Basic Scripting from the**
+**Command Line** PDF file (dated 2010-06-02).
+
+## Create a material using the material editor from the command line
+
+The first command will start the material editor. In this case I
+could search for `S310` that I had previously defined. The material
+was assigned to the variable `ss310` (Stainless Steel 310).
+
+```
+1> ss310=createMaterial()
+2> ss310
+S310
+```
+
+Note that one could also describe the material explicitly from the 
+command line by using two python lists and a density value. This is
+more reproducible.
+
+```
+1> s310 = epq.Material(epq.Composition([epq.Element.C,
+                                        epq.Element.Si,
+                                        epq.Element.P,
+                                        epq.Element.S,
+                                        epq.Element.Cr,
+                                        epq.Element.Mn,
+                                        epq.Element.Fe,
+                                        epq.Element.Ni],
+                                       [0.0024,
+                                        0.0150,
+                                        0.0004,
+                                        0.0003,
+                                        0.2500,
+                                        0.0200,
+                                        0.5069,
+                                        0.2050]),
+                       epq.ToSI.gPerCC(7.89))
+2> s310.setName("S310")
+3> s310
+S310
+
+```
+When we do this it is typically easier to write a python script file
+with the entire analysis.
+
+## List and choose a detector
+
+Next we want to set the detector, using the `findDetector()` function.
+```
+3> listDetectors()
+4> det = findDetector("Oxford p4 05eV 4K")
+```
+
+## Run a ZAF and print the results
+
+Now we run the ZAF analysis and let the function print the report.
+
+```
+5> zaf(ss310, det, 15.0, stds={"Fe":"SS309", "Cr":"SS309", "Ni":"SS309"})
+Material    S310 = [C(0.0024 mass frac),Si(0.0150 mass frac),
+                    P(0.0004 mass frac),S(0.0003 mass frac),
+                    Cr(0.2500 mass frac),Mn(0.0200 mass frac),
+                    Fe(0.5069 mass frac),Ni(0.2050 mass frac),
+                    Σ=1.0000,7.9 g/cc]
+
+Detector    Oxford p4 05eV 4K - FWHM[Mn Kα]=130.1 eV - initial
+Algorithm    XPP - Pouchou & Pichoir Simplified
+MAC    NIST-Chantler 2005
+E0    15 keV
+Take-off    35°
+
+IUPAC     Seigbahn  Standard  Energy   ZAF     Z       A       F       k-ratio
+C K-L3    C Kα1     Pure C    0.2818   0.3018  1.3429  0.2247  1.0005  0.000724
+Si K-L3   Si Kα1    Pure Si   1.7397   0.6857  1.1506  0.5955  1.0008  0.010286
+Si K-M3   Si Kβ1    Pure Si   1.8290   0.7222  1.1506  0.6271  1.0009  0.010833
+P K-L3    P Kα1     Pure P    2.0133   0.7679  1.1077  0.6921  1.0016  0.000346
+P K-M3    P Kβ1     Pure P    2.1392   0.8043  1.1077  0.7248  1.0017  0.000362
+S K-L3    S Kα1     Pure S    2.3072   0.8802  1.1321  0.7751  1.0030  0.000264
+S K-M3    S Kβ1     Pure S    2.4643   0.9126  1.1321  0.8035  1.0033  0.000274
+Cr K-L3   Cr Kα1    SS309     5.4147   0.9901  0.9968  0.9997  0.9936  0.990080
+Cr K-M3   Cr Kβ1    SS309     5.9467   0.9898  0.9968  0.9998  0.9932  0.989801
+Cr L3-M5  Cr Lα1    SS309     0.5722   0.9834  0.9971  0.9864  0.9998  0.983438
+Mn K-L3   Mn Kα1    Pure Mn   5.8987   1.0031  0.9767  0.9970  1.0302  0.020063
+Mn K-M3   Mn Kβ1    Pure Mn   6.4904   0.9720  0.9767  0.9703  1.0257  0.019440
+Mn L3-M5  Mn Lα1    Pure Mn   0.6332   0.4180  0.9756  0.4277  1.0018  0.008360
+Fe K-L3   Fe Kα1    SS309     6.4039   0.9974  0.9966  0.9999  1.0008  0.919107
+Fe K-M3   Fe Kβ1    SS309     7.0580   0.9954  0.9966  0.9980  1.0007  0.917266
+Fe L3-M5  Fe Lα1    SS309     0.7045   0.9483  0.9971  0.9510  1.0000  0.873894
+Ni K-L3   Ni Kα1    SS309     7.4781   0.9986  0.9965  1.0021  1.0000  1.023569
+Ni K-M3   Ni Kβ1    SS309     8.2647   0.9981  0.9965  1.0016  1.0000  1.023094
+Ni L3-M5  Ni Lα1    SS309     0.8511   1.0275  0.9971  1.0304  1.0000  1.053143
+6> 
+
+```

@@ -1,0 +1,53 @@
+# NIST_K411_and_K412_info.txt
+
+def defineMat(elms,qty,name,density=None):
+	c=epq.Composition(map(element,elms),qty,name)
+	if density:
+		c=epq.Material(c,epq.ToSI.gPerCC(density))
+	return(c)
+
+
+
+defineStd(("O","Mg","Si","Ca","Fe",),(0.428600,0.089500,0.256700,0.111800,0.113400,),"K411",2.600000)
+defineStd(("O","Mg","Al","Si","Ca","Fe",),(0.431202,0.117554,0.049477,0.213777,0.109914,0.078075,),"K412",2.660000)
+
+CalcZAF Values
+
+St  808 NBS K-411 mineral glass (#162)
+TakeOff = 40.0  KiloVolt = 15.0  Density =  5.000
+
+SRM 470, NIST
+Elemental Composition
+
+Average Total Oxygen:         .000     Average Total Weight%:   99.990
+Average Calculated Oxygen:    .000     Average Atomic Number:   13.286
+Average Excess Oxygen:        .000     Average Atomic Weight:   22.513
+
+ELEM:       Si      Fe      Mg      Ca      Al      Mn       O
+XRAY:      ka      ka      ka      ka      ka      ka      ka 
+ELWT:   25.620  11.310   8.930  11.160    .050    .080  42.840
+KFAC:    .2038   .0960   .0574   .1037   .0003   .0007   .1694
+ZCOR:   1.2574  1.1787  1.5554  1.0764  1.4561  1.1959  2.5288
+AT% :   20.539   4.560   8.273   6.269    .042    .033  60.285
+
+St  807 NBS K-412 mineral glass (#160)
+TakeOff = 40.0  KiloVolt = 15.0  Density =  5.000
+
+SRM 470, NIST
+C.M. Taylor (Photometry?) FeO 2.77, Fe2O3 8.15
+Total as FeO 10.10, Excess O 0.815
+Na = 430 PPM (EPMA by JJD)
+Oxide and Elemental Composition
+
+Average Total Oxygen:       43.597     Average Total Weight%:  100.100
+Average Calculated Oxygen:  42.784     Average Atomic Number:   12.693
+Average Excess Oxygen:        .813     Average Atomic Weight:   21.979
+
+ELEM:     SiO2     FeO     MgO     CaO   Al2O3     MnO       O    Na2O
+XRAY:      ka      ka      ka      ka      ka      ka      ka      ka 
+OXWT:   45.333   9.957  19.319  15.251   9.277    .090    .813    .058
+ELWT:   21.190   7.740  11.650  10.900   4.910    .070  43.597    .043
+KFAC:    .1620   .0654   .0776   .1008   .0335   .0006   .1739   .0002
+ZCOR:   1.3078  1.1841  1.5013  1.0816  1.4658  1.2021  2.5072  1.9898
+AT% :   16.566   3.043  10.525   5.971   3.996    .028  59.830    .041
+24 O:    6.645   1.221   4.222   2.395   1.603    .011  24.000    .016

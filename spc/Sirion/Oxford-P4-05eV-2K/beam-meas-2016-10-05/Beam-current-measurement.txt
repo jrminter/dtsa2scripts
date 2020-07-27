@@ -1,0 +1,6 @@
+20 kV Spot 5 FC 3.68 4 mm
+15 kV Spot 5 FC 3.67 4 mm
+10 kV Spot 5 FC 2.82 4 mm
+ 7 kV Spot 5 FC 2.69 4 mm
+ 5 kV Spot 5 FC 2.31 4 mm
+ 2 kV Spot 5 FC 1.20 4 mm

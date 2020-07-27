@@ -1,0 +1,103 @@
+1> 
+Running /Users/jrminter/Documents/git/dtsa2Scripts/utility/testSiO-SiO2-quant-2.py
+SiO Unk 50 nA-sec.msa
+Weight Fraction
+Si
+0.63393 ± 0.00182
+O
+0.36607 ± 0.00323
+
+Atomic Percent
+Si
+0.4966 ± 0.00142
+O
+0.5034 ± 0.00444
+
+
+SiO Unk 100 nA-sec.msa
+Weight Fraction
+Si
+0.6342 ± 0.00131
+O
+0.3658 ± 0.00316
+
+Atomic Percent
+Si
+0.49689 ± 0.00102
+O
+0.50311 ± 0.00435
+
+
+SiO Unk 200 nA-sec.msa
+Weight Fraction
+Si
+0.6352 ± 0.00095
+O
+0.3648 ± 0.00312
+
+Atomic Percent
+Si
+0.49797 ± 0.00075
+O
+0.50203 ± 0.0043
+
+
+SiO Unk 500 nA-sec.msa
+Weight Fraction
+Si
+0.63518 ± 0.00065
+O
+0.36482 ± 0.00313
+
+Atomic Percent
+Si
+0.49795 ± 0.00051
+O
+0.50205 ± 0.00431
+
+
+SiO Unk 1000 nA-sec.msa
+Weight Fraction
+Si
+0.6355 ± 0.00052
+O
+0.3645 ± 0.00314
+
+Atomic Percent
+Si
+0.4983 ± 0.00041
+O
+0.5017 ± 0.00432
+
+
+SiO Unk 2500 nA-sec.msa
+Weight Fraction
+Si
+0.63497 ± 0.00041
+O
+0.36503 ± 0.00313
+
+Atomic Percent
+Si
+0.49772 ± 0.00032
+O
+0.50228 ± 0.0043
+
+
+SiO Unk 5000 nA-sec.msa
+Weight Fraction
+Si
+0.63521 ± 0.00038
+O
+0.36479 ± 0.00311
+
+Atomic Percent
+Si
+0.49798 ± 0.00029
+O
+0.50202 ± 0.00428
+
+
+Done!
+This script required 0.006 min
+Elapse: 0:00:00.4

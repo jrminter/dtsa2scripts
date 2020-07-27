@@ -1,0 +1,25 @@
+MC simulation of bulk Cassiterite at 20.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	20000
+# of scattering events	8515804
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	31565.39718790437	1296.1332088746813
+Sn L2-N4	1289.9567267316002	958.4346573308235
+Sn L3-M5	22591.446147145296	19289.311038093354
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	20000
+# of scattering events	847249
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	20.51732132156878	0.6252619731984236
+Sn L2-N4	29.317634049578576	10.413205133787816
+Sn L3-M5	368.1758026009077	186.07289174629244
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	20000
+# of scattering events	851290
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	13.79573860650667	0.36372244518397273
+Sn L2-N4	0.8820512133414581	0.4865563100720453
+Sn L3-M5	35.800457237244665	24.745324561855874

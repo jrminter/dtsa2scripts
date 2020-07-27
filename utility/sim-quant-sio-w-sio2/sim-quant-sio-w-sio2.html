@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>NIST DTSA-II Report - Oct 15, 2018</title>
+        <author>John Minter</author>
+    </head>
+
+
+    <body>
+        <h3><a name="ITEM_1">Command Line</a></h3>
+
+        <ul>
+            <li>
+                Running /Users/jrminter/Documents/git/dtsa2Scripts/utility/testSiO-SiO2-quant.py
+            </li>
+        </ul>
+
+        <h3><a name="ITEM_2">Simulation Parameters</a></h3>
+
+        <ul>
+            <li>
+            {'Characteristic Accumulator': True, 'Print Accumulators': False, 'Transitions': [O K-L3, Si K-L3, Si K-M3],<br>
+            &nbsp;'Brem Fluor Accumulator': True, 'Char Fluor Accumulator': True}
+            </li>
+            <li>
+             All simulations were 50,0000 trajectories
+            </li>
+
+            <h3><a name="ITEM_3">Simulations</a></h3>
+
+            <li>
+                First ran a MC simulation of bulk SiO2 at 4.0 keV + CSF + BSF for a standard
+            </li>
+            <li>
+                Then ran SiO Unk 50 nA-sec and quantified
+            </li>
+        </ul>
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 50 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3695±0.0033</td><td>0.3661±0.0032</td><td>0.5034±0.0044</td></tr>
+            <tr><td>Si</td><td>0.6398±0.0018</td><td>0.6339±0.0018</td><td>0.4966±0.0014</td></tr>
+        </table>
+
+        <ul>
+            <li>
+                Then ran SiO Unk 100 nA-sec and quantified
+            </li>
+        </ul>
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 100 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3683±0.0032</td><td>0.3658±0.0032</td><td>0.5031±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6386±0.0013</td><td>0.6342±0.0013</td><td>0.4969±0.0010</td></tr>
+        </table>
+        <ul>
+            <li>
+                Then ran SiO Unk 200 nA-sec and quantified
+            </li>
+        </ul>
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 200 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3666±0.0031</td><td>0.3648±0.0031</td><td>0.5020±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6383±0.0010</td><td>0.6352±0.0010</td><td>0.4980±0.0007</td></tr>
+        </table>
+        <ul>
+            <li>
+                Then ran SiO Unk 500 nA-sec and quantified
+            </li>
+        </ul>
+
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 500 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3673±0.0032</td><td>0.3648±0.0031</td><td>0.5021±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6395±0.0007</td><td>0.6352±0.0007</td><td>0.4979±0.0005</td></tr>
+        </table>
+        <ul>
+            <li>
+                Then ran SiO Unk 1000 nA-sec and quantified
+            </li>
+        </ul>
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 1000 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3673±0.0032</td><td>0.3645±0.0031</td><td>0.5017±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6403±0.0005</td><td>0.6355±0.0005</td><td>0.4983±0.0004</td></tr>
+        </table>
+        <ul>
+            <li>
+                Then ran SiO Unk 2500 nA-sec and quantified
+            </li>
+        </ul>
+
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 2500 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3678±0.0032</td><td>0.3650±0.0031</td><td>0.5023±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6398±0.0004</td><td>0.6350±0.0004</td><td>0.4977±0.0003</td></tr>
+        </table>
+
+        <ul>
+            <li>
+                Finally, ran SiO Unk 5000 nA-sec and quantified
+            </li>
+        </ul>
+
+        <table class="leftalign">
+            <tr><th colspan="4">SiO Unk 5000 nA-sec</th></tr>
+            <tr><th>Element</th><th>Mass<br/>Fraction</th><th>Mass Fraction<br/>(normalized)</th><th>Atomic<br/>Fraction</th></tr>
+            <tr><td>O</td><td>0.3668±0.0031</td><td>0.3648±0.0031</td><td>0.5020±0.0043</td></tr>
+            <tr><td>Si</td><td>0.6387±0.0004</td><td>0.6352±0.0004</td><td>0.4980±0.0003</td></tr>
+        </table>
+        <ul>
+            <li>
+                DTSA-II reported<br>
+                Done!<br>
+                This script required 53.784 min<br>
+                Elapse: 0:53:47.5
+            </li>
+        </ul>
+    </body>
+</html>

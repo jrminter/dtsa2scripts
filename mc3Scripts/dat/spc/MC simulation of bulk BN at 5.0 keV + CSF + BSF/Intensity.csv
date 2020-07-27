@@ -1,0 +1,28 @@
+MC simulation of bulk BN at 5.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	1039456
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+B K-L2	0.0	0.0
+B K-L3	4028.212531258716	2765.4298074793833
+N K-L2	7049.974911009351	4815.84712641935
+N K-L3	14057.490185147675	9602.690019093927
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	103211
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+B K-L2	0.0	0.0
+B K-L3	0.32475735258954175	0.1733929963269469
+N K-L2	1.7872498273795199	0.6319811573427145
+N K-L3	3.5637356478476336	1.2601561039132698
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	104502
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+B K-L2	0.0	0.0
+B K-L3	2.445852780383071	1.273102865675379
+N K-L2	0.0	0.0
+N K-L3	0.0	0.0

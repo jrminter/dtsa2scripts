@@ -1,0 +1,29 @@
+
+ **********************************
+ **   PENELOPE  (version 2012)   **
+ **********************************
+
+ EMIN = 5.0000E+01 eV,  EMAX = 2.0000E+03 eV
+
+
+ **********************
+ **   1st material   **
+ **********************
+
+ Material data file: Pure-Cs2O.MAT       
+
+ *** Simulation parameters:
+     Electron absorption energy = 5.0000E+01 eV
+       Photon absorption energy = 5.0000E+01 eV
+     Positron absorption energy = 5.0000E+01 eV
+      C1 = 2.0000E-01,       C2 = 2.0000E-01
+     WCC = 5.0000E+01 eV,   WCR = 5.0000E+01 eV
+
+ PENELOPE (v. 2012)  Material data file ...............
+ Material: Pure-Cs2O                                                     
+ Mass density = 4.65000000E+00 g/cm**3
+ Number of elements in the molecule =  2
+    Element: Cs (Z=55), atoms/molecule = 1.00000000E+00
+    Element: O  (Z= 8), atoms/molecule = 4.99114776E-01
+ Mean excitation energy = 4.36834126E+02 eV
+ PENELOPE (v. 2012)  End of material data file ........

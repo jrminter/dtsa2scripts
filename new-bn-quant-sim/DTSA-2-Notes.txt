@@ -1,0 +1,21 @@
+From Ritchi22012a.pdf p.9959
+K227.
+
+NIST K227 is an engineered glass with
+0.1639  O by mass
+0.0935 Si by mass and
+0.7427 Pb by mass.
+
+The presence of O in a Pb matrix is interesting because the O K−L3 is
+strongly absorbed by Pb and because the mean atomic number of the glass
+is much larger than that of many common materials used as an O
+standard (Al2O3, MgO, SiO2, etc.). We considered a range of E0
+from 5 to 30 keV and standard materials MgO, Al2O3, SiO2, and a
+compositionally similar engineered glass, K229.
+
+K229 is:
+0.2099  O by mass,
+0.1402 Si by mass, and
+0.6498 Pb by mass.
+
+C:/Users/johnr/Documents/git/dtsa2Scripts/new-bn-quant-sim/

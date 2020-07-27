@@ -1,0 +1,61 @@
+---
+title: "Analyze BAM EDS Standard"
+author: "John Minter"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spectrum Deconvolution}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+Pierre Burdet made the following spectrum available via hyperspy. This
+was exported to a `.msa` file.
+
+```{r}
+library(rEDS)
+library(rPeaks)
+
+strFile <- "qm-04372-EDS-TM002-10kV.msa"
+spc <- singleMSA(spec=strFile)
+str(spc)
+spc@title <-"BAM EDS-TM002 10 kV"
+```
+
+We may plot the spectrum
+
+```{r, fig.width=7.}
+plot(spc)
+```
+
+Now let's do the background
+
+```{r, fig.width=7.}
+y <- as.numeric(spc@spectrum)
+
+b <- SpectrumBackground(y, order = "6", window="11", iterations=100)
+
+bks <- y-b
+
+spc@spectrum <- bks
+plot(spc)
+
+
+```
+
+Find the peaks
+
+```{r, fig.width=7.}
+z <- SpectrumSearch(bks)
+z$pos
+
+l <- length(z$pos)
+
+plot(bks[1:700], type='l', col='red')
+
+for(i in 1:l){
+  abline(v=z$pos[i], col='blue')
+}
+
+
+```

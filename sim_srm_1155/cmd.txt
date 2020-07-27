@@ -1,0 +1,38 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.3
+
+Running /Users/jrminter/Documents/git/dtsa2Scripts/sim_srm_1155/sim-srm_1155.py
+/Users/jrminter/Documents/git
+/Users/jrminter/Documents/git/dtsa2Scripts/sim-srm_1155/
+('start date and time:', '12/25/2019, 20:17:53')
+MC simulation of bulk SRM1155 at 15.0 keV + CSF + BSF
+Done!
+('finish date and time:', '12/25/2019, 20:17:53')
+1577323116.65
+This script required 0.715 min
+Elapse: 0:00:43.6
+
+Running /Users/jrminter/Documents/git/dtsa2Scripts/sim_srm_1155/sim-srm_1155.py
+/Users/jrminter/Documents/git
+/Users/jrminter/Documents/git/dtsa2Scripts/sim-srm_1155/
+('start date and time:', '12/25/2019, 20:26:23')
+MC simulation of bulk SRM1155 at 15.0 keV + CSF + BSF
+Done!
+('finish date and time:', '12/25/2019, 20:26:23')
+This script required 0.698 min
+Elapse: 0:00:41.9
+1> 10000*0.42
+4200.0
+1> 4200/60
+70
+
+Running /Users/jrminter/Documents/git/dtsa2Scripts/sim_srm_1155/sim-srm_1155.py
+/Users/jrminter/Documents/git
+/Users/jrminter/Documents/git/dtsa2Scripts/sim-srm_1155/
+('start date and time:', '12/25/2019, 20:30:24')
+MC simulation of bulk SRM1155 at 15.0 keV + CSF + BSF
+Done!
+('finish date and time:', '12/25/2019, 20:30:24')
+This script required 69.024 min
+Elapse: 1:09:01.4

@@ -1,0 +1,114 @@
+<gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector id="1">
+  <mDetProperties id="2">
+    <mName>Bruker 5 eV</mName>
+    <mProperties id="3" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>18</int>
+        <string>Aluminum layer thickness</string>
+        <double>30.0</double>
+        <string>Azimuthal angle</string>
+        <double>180.0</double>
+        <string>Dead layer</string>
+        <double>0.1</double>
+        <string>Detector GUID</string>
+        <string>29fb8024-0dde-1420-8891-a8bc4a9e9588</string>
+        <string>Detector area</string>
+        <double>40.0</double>
+        <string>Detector orientation</string>
+        <double-array id="4">
+          <double>0.766044443118978</double>
+          <double>-9.381338752702731E-17</double>
+          <double>0.6427876096865393</double>
+        </double-array>
+        <string>Detector position</string>
+        <double-array id="5">
+          <double>-55.15519990456643</double>
+          <double>6.7545639019459675E-15</double>
+          <double>-34.28070789743084</double>
+        </double-array>
+        <string>Detector thickness</string>
+        <double>0.45</double>
+        <string>Detector type</string>
+        <string>Silicon Drift Detector</string>
+        <string>Detector window</string>
+        <XRayWindow id="6">
+          <mProperties id="7" serialization="custom">
+            <SpectrumProperties>
+              <null/>
+              <int>2</int>
+              <string>Support grid open area</string>
+              <double>100.0</double>
+              <string>Window type</string>
+              <string>No window</string>
+            </SpectrumProperties>
+          </mProperties>
+          <mLayers id="8"/>
+          <mOpenFraction>1.0</mOpenFraction>
+          <mLowEnergyCorrection>1.0</mLowEnergyCorrection>
+          <mCoverage>1.0</mCoverage>
+          <mName>No window</mName>
+        </XRayWindow>
+        <string>Elevation</string>
+        <double>40.0</double>
+        <string>Gold layer thickness</string>
+        <double>0.0</double>
+        <string>Nickel layer thickness</string>
+        <double>0.0</double>
+        <string>Optimal working distance</string>
+        <double>12.0</double>
+        <string>Solid angle</string>
+        <double>0.007716049382716043</double>
+        <string>Specimen-to-detector distance</string>
+        <double>72.00000000000001</double>
+        <string>Support grid open area</string>
+        <double>100.0</double>
+        <string>Window type</string>
+        <string>No window</string>
+      </SpectrumProperties>
+    </mProperties>
+    <mChannelCount>4096</mChannelCount>
+  </mDetProperties>
+  <mCalibration class="SiLiCalibration" id="9">
+    <mActiveDate id="10">1970-01-01 00:00:00.0 UTC</mActiveDate>
+    <mProperties id="11" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>5</int>
+        <string>Calibration GUID</string>
+        <string>9bc7b6d3-216a-c933-d0c9-d1a47f601f82</string>
+        <string>Energy offset</string>
+        <double>-477.82416</double>
+        <string>Energy scale</string>
+        <double>5.00409</double>
+        <string>Resolution</string>
+        <double>128.0</double>
+        <string>Resolution measurement energy</string>
+        <double>5898.7</double>
+      </SpectrumProperties>
+    </mProperties>
+    <mContamination class="XRayWindow" id="12">
+      <mProperties id="13" serialization="custom">
+        <SpectrumProperties>
+          <null/>
+          <int>1</int>
+          <string>Support grid open area</string>
+          <double>100.0</double>
+        </SpectrumProperties>
+      </mProperties>
+      <mLayers id="14"/>
+      <mOpenFraction>1.0</mOpenFraction>
+      <mLowEnergyCorrection>1.0</mLowEnergyCorrection>
+      <mCoverage>1.0</mCoverage>
+    </mContamination>
+    <mLineshape class="BasicSiLiLineshape" id="15">
+      <mFWHMatMnKa>128.0</mFWHMatMnKa>
+    </mLineshape>
+    <mName>128.0 eV</mName>
+    <mFudgeFactor>1.0</mFudgeFactor>
+    <mFirstLElement>20</mFirstLElement>
+    <mFirstKElement>5</mFirstKElement>
+    <mFirstMElement>57</mFirstMElement>
+    <mFWHM>128.0</mFWHM>
+  </mCalibration>
+</gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector>

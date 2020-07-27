@@ -1,0 +1,122 @@
+---
+title: "DTSA-II Simulation of Au on Cu"
+author: "John Minter"
+date: "Started: 2019-12-03, Modified: 2019-12-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(pander)
+```
+
+Load the results from a .csv file
+
+```{r readData}
+# make df0 containing limits for zero thickness
+df0 <- data.frame(0.0, 0.0, 0.0, 1.0, 1.0)
+names(df0) <-c("tNm", "kAuLaMu", "kAuLaStd", "kCuKaMu", "kCuKaStd")
+
+# read the datafame
+df1 <- read.csv(file="../csv/sim-Au-on-Cu-15-kV-30-steps-10-nm.csv",
+                header=TRUE, sep=",")
+# make the dataframe
+df <- rbind(df0, df1)
+
+
+pander(df, style = "grid")
+```
+
+# First Plot
+
+```{r plotKF}
+bSave = TRUE
+
+plt <-  ggplot() +
+        geom_point(data=df, aes(x=tNm, y=kAuLaMu),
+                   colour="darkblue") +
+        geom_point(data=df, aes(x=tNm, y=kCuKaMu),
+                   colour="darkred") +
+        xlab("thickness [nm]") +
+        ylab("K factor") +
+        annotate("text", label = 'kAuLa', x = 250, y = 0.85, size = 5, colour = "darkblue") +
+        annotate("text", label = 'kCuKa', x = 250, y = 0.20, size = 5, colour = "darkred") +
+        ggtitle("DTSA-II simulation (10000 trajectories) Au on Cu at 15 kV") +
+        labs(caption = 'jrminter@gmail.com / @jrminter') +
+        theme(axis.text=element_text(size=12),
+              axis.title=element_text(size=12),
+              # center the title
+              plot.title=element_text(hjust = 0.5)) +
+        NULL
+
+print(plt)
+
+if (bSave == TRUE) {
+  ggsave("sim-Au-on-Cu-15kV.png", plot=plt,
+         width=7, height=5, units="in", dpi=150)
+}
+
+```
+
+# Try a LOESS fit
+
+```{r computeLOESS}
+
+y.loess.AuLa <- loess(kAuLaMu ~ tNm, span=0.75, data=df)
+tNm <- seq(from=0.0, to=300, by=0.5)
+df2 <- data.frame(tNm=tNm)
+df2$kAuLaMu = round(predict(y.loess.AuLa, newdata = df2), 5)
+y.loess.AuLa
+
+y.loess.CuKa <- loess(kCuKaMu ~ tNm, span=0.75, data=df)
+tNm <- seq(from=0.0, to=300, by=0.5)
+df2$kCuKaMu = round(predict(y.loess.CuKa, newdata = df2), 5)
+y.loess.CuKa
+
+pander(head(df2))
+
+pander(tail(df2))
+```
+
+# Final Plot
+
+```{r newPlot}
+
+newPlt <- ggplot() +
+          geom_point(data=df,
+                     aes(x=tNm, y=kAuLaMu),
+                     colour="darkblue") +
+          geom_line(data=df2, size=1.25, aes(x=tNm, y=kAuLaMu),
+                    color="blue") +
+          geom_point(data=df,
+                     aes(x=tNm, y=kCuKaMu),
+                     colour="darkred") +
+          geom_line(data=df2, size=1.25, aes(x=tNm, y=kCuKaMu),
+                    color="darkred") +
+          xlab("thickness [nm]") +
+          ylab("K factor") +
+          annotate("text", label = 'kAuLa', x = 250, y = 0.85, size = 5, colour = "darkblue") +
+          annotate("text", label = 'kCuKa', x = 250, y = 0.20, size = 5, colour = "darkred") +
+          ggtitle("DTSA-II simulation (10000 trajectories) Au on Cu at 15 kV") +
+          labs(caption = 'jrminter@gmail.com / @jrminter') +
+          theme(axis.text=element_text(size=12),
+                axis.title=element_text(size=12),
+                # center the title
+                plot.title=element_text(hjust = 0.5)) +
+          
+          NULL
+
+
+print(newPlt)
+
+
+if (bSave == TRUE) {
+  ggsave("sim-Au-on-Cu-15kV-LOESS.png", plot=newPlt,
+          width=7, height=5, units="in", dpi=150)
+}
+
+
+```
+

@@ -1,0 +1,28 @@
+MC simulation of bulk Cuprite at 20.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	20000
+# of scattering events	7327157
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	15994.958134010842	3188.40371995718
+Cu K-L3	9922.219649645045	9755.656271537766
+Cu K-M3	1206.602886099135	1191.169377637605
+Cu L3-M5	39156.825680428476	16691.752140704928
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	20000
+# of scattering events	730799
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	17.597478935822508	2.708916288247834
+Cu K-L3	776.803988192855	596.8797533076317
+Cu K-M3	94.46413878978308	76.4301617052445
+Cu L3-M5	66.49739839441276	16.648771329592144
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	20000
+# of scattering events	732808
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	50.13152378012038	7.914789861045374
+Cu K-L3	0.0	0.0
+Cu K-M3	0.0	0.0
+Cu L3-M5	60.568515251532766	19.550438343201524

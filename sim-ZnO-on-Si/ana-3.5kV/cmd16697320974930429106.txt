@@ -1,0 +1,3 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.4

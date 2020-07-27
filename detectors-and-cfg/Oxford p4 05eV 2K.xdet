@@ -1,0 +1,128 @@
+<gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector id="1">
+  <mDetProperties id="2">
+    <mName>Oxford p4 05eV 2K</mName>
+    <mProperties id="3" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>22</int>
+        <string>Aluminum layer thickness</string>
+        <double>10.0</double>
+        <string>Aluminum window thickness</string>
+        <double>30.0</double>
+        <string>Azimuthal angle</string>
+        <double>225.0</double>
+        <string>Dead layer</string>
+        <double>0.0</double>
+        <string>Detector GUID</string>
+        <string>beb453cd-0419-e61a-0579-19c0f29e56e8</string>
+        <string>Detector area</string>
+        <double>80.0</double>
+        <string>Detector orientation</string>
+        <double-array id="4">
+          <double>0.5792279653395693</double>
+          <double>0.5792279653395691</double>
+          <double>0.573576436351046</double>
+        </double-array>
+        <string>Detector position</string>
+        <double-array id="5">
+          <double>-31.43180553915173</double>
+          <double>-31.431805539151718</double>
+          <double>-26.125125318589514</double>
+        </double-array>
+        <string>Detector thickness</string>
+        <double>0.45</double>
+        <string>Detector type</string>
+        <string>Silicon Drift Detector</string>
+        <string>Detector window</string>
+        <XRayWindow2 id="6">
+          <mName>Moxtek AP 3.3 (manufacturer&apos;s table)</mName>
+          <mChWidth>8.01088265E-19</mChWidth>
+          <mProperties id="7" serialization="custom">
+            <SpectrumProperties>
+              <null/>
+              <int>5</int>
+              <string>Aluminum window thickness</string>
+              <double>30.0</double>
+              <string>Moxtek window thickness</string>
+              <double>3.3</double>
+              <string>Support grid open area</string>
+              <double>77.0</double>
+              <string>Support grid thickness</string>
+              <double>0.38</double>
+              <string>Window type</string>
+              <string>Ultra-thin window</string>
+            </SpectrumProperties>
+          </mProperties>
+          <mResourceName>AP3_3.csv</mResourceName>
+        </XRayWindow2>
+        <string>Elevation</string>
+        <double>35.0</double>
+        <string>Gold layer thickness</string>
+        <double>0.0</double>
+        <string>Moxtek window thickness</string>
+        <double>3.3</double>
+        <string>Nickel layer thickness</string>
+        <double>0.0</double>
+        <string>Optimal working distance</string>
+        <double>5.0</double>
+        <string>Solid angle</string>
+        <double>0.02716754357412926</double>
+        <string>Specimen-to-detector distance</string>
+        <double>54.265</double>
+        <string>Support grid open area</string>
+        <double>77.0</double>
+        <string>Support grid thickness</string>
+        <double>0.38</double>
+        <string>Window type</string>
+        <string>Ultra-thin window</string>
+        <string>Zero peak discriminator</string>
+        <double>100.0</double>
+      </SpectrumProperties>
+    </mProperties>
+    <mChannelCount>2048</mChannelCount>
+  </mDetProperties>
+  <mCalibration class="SiLiCalibration" id="8">
+    <mActiveDate id="9">2017-12-14 17:00:01.0 UTC</mActiveDate>
+    <mProperties id="10" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>5</int>
+        <string>Calibration GUID</string>
+        <string>3e4d6d46-b590-a9bb-630c-41344314cebe</string>
+        <string>Energy offset</string>
+        <double>-103.03935790984247</double>
+        <string>Energy scale</string>
+        <double>5.003121985727354</double>
+        <string>Resolution</string>
+        <double>130.23582802413577</double>
+        <string>Resolution measurement energy</string>
+        <double>5898.7</double>
+      </SpectrumProperties>
+    </mProperties>
+    <mContamination class="XRayWindow" id="11">
+      <mProperties id="12" serialization="custom">
+        <SpectrumProperties>
+          <null/>
+          <int>1</int>
+          <string>Support grid open area</string>
+          <double>100.0</double>
+        </SpectrumProperties>
+      </mProperties>
+      <mLayers id="13"/>
+      <mOpenFraction>1.0</mOpenFraction>
+      <mLowEnergyCorrection>1.0</mLowEnergyCorrection>
+      <mCoverage>1.0</mCoverage>
+    </mContamination>
+    <mLineshape class="gov.nist.microanalysis.EPQLibrary.Detector.FanoSiLiLineshape" id="14">
+      <mFanoFactor>0.12</mFanoFactor>
+      <mNoise>6.032760301894298</mNoise>
+      <mScale>1.0</mScale>
+    </mLineshape>
+    <mName>FWHM[Mn K?]=130.2 eV - 2017-12-15 13:23</mName>
+    <mFudgeFactor>1.0</mFudgeFactor>
+    <mFirstLElement>20</mFirstLElement>
+    <mFirstKElement>5</mFirstKElement>
+    <mFirstMElement>57</mFirstMElement>
+    <mFWHM>130.23582802413577</mFWHM>
+  </mCalibration>
+</gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector>

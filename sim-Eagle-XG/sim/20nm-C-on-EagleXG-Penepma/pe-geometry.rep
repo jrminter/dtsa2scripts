@@ -1,0 +1,76 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX        
+C                                                                       
+C  Thin film on substrate                                               
+C                                                                       
+0000000000000000000000000000000000000000000000000000000000000000
+SURFACE (   1)   Plane Z=0                                           
+INDICES=( 0, 0, 0, 1, 0)
+0000000000000000000000000000000000000000000000000000000000000000
+SURFACE (   2)   Plane Z=-20 nm                                      
+INDICES=( 0, 0, 0, 1, 0)
+Z-SHIFT=(-2.000000000000000E-06,   0)       
+0000000000000000000000000000000000000000000000000000000000000000
+SURFACE (   3)   Plane Z=-0.1 cm                                     
+INDICES=( 0, 0, 0, 1, 0)
+Z-SHIFT=(-1.000000000000000E-01,   0)       
+0000000000000000000000000000000000000000000000000000000000000000
+SURFACE (   4)   Cylinder, 1 cm radius                               
+INDICES=( 1, 1, 0, 0,-1)
+X-SCALE=( 1.000000000000000E+00,   0)       
+Y-SCALE=( 1.000000000000000E+00,   0)       
+0000000000000000000000000000000000000000000000000000000000000000
+MODULE  (   1)  Thin film                                            
+MATERIAL(   1)
+SURFACE (   1), SIDE POINTER=(-1)
+SURFACE (   2), SIDE POINTER=( 1)
+SURFACE (   4), SIDE POINTER=(-1)
+0000000000000000000000000000000000000000000000000000000000000000
+MODULE  (   2)  Substrate                                            
+MATERIAL(   2)
+SURFACE (   2), SIDE POINTER=(-1)
+SURFACE (   3), SIDE POINTER=( 1)
+SURFACE (   4), SIDE POINTER=(-1)
+0000000000000000000000000000000000000000000000000000000000000000
+END      0000000000000000000000000000000000000000000000000000000
+
+
+
+*****************************************
+****     PENGEOM (version 2012)      ****
+****  Constructive Quadric Geometry  ****
+*****************************************
+
+
+
+************  Genealogical tree. 
+
+
+*** MODULE =    1,  KMOTH =    3,  MAT =  1
+KDGHT =    1
+KSURF =    1    2    4    5
+KFLAG =    1    2    1    1
+
+*** MODULE =    2,  KMOTH =    3,  MAT =  2
+KDGHT =    2
+KSURF =    2    3    4    5
+KFLAG =    1    2    1    1
+
+*** MODULE =    3,  KMOTH =    0,  MAT =  0
+KDGHT =    1    2    3
+KSURF =    5    1    2    4    3
+KFLAG =    1    4    4    4    4
+
+
+************  Adequacy of the geometry definition.
+
+The largest number of bodies in a module or
+     bodies limiting a single body is ............    3
+
+The largest number of limiting surfaces for
+     a single body or module is ..................    5
+
+
+The simulation of this geometry will be relatively fast,
+     no further optimization seems to be required.
+
+************  The end.

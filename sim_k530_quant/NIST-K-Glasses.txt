@@ -1,0 +1,110 @@
+"Standard"
+#11 SiO  density 2.130
+ELEM:       Si       O
+XRAY:      ka      ka 
+
+
+
+#807 K412 Mineral Glass (#160)
+
+ELEM:       Si      Fe      Mg      Ca      Al      Mn       O
+XRAY:      ka      ka      ka      ka      ka      ka      ka 
+ELWT:   25.620  11.310   8.930  11.160    .050    .080  42.840 
+
+#808 K-411 Mineral Glass (#162)
+ELEM:       Si      Fe      Mg      Ca      Al      Mn       O
+XRAY:      ka      ka      ka      ka      ka      ka      ka 
+ELWT:   25.620  11.310   8.930  11.160    .050    .080  42.840
+
+K496 (#600)
+ELEM:       Al      Mg       P       O
+XRAY:      ka      ka      ka      ka 
+ELWT:    6.470   6.650  32.980  53.900
+
+K-497 (#601)
+ELEM:       Al      Mg       P       O      Pb      Si      Ti      Fe      Zr      Ce      Ta
+XRAY:      ka      ka      ka      ka      ma      ka      ka      ka      la      la       la
+ELWT:    5.970   6.490  31.590  52.460    .860    .130    .220    .260    .320    .940    .071
+
+
+K-458
+ELEM:       Si      Ba      Zn       O
+XRAY:      ka      la      ka      ka 
+ELWT:   23.050  41.790   3.010  31.860
+
+K489
+ELEM:       Si      Ba      Zn      Pb      Al      Zr      Ti      Ce    Ta      Fe       O
+XRAY:      ka      la      ka      ma      ka      la      ka      la     la      ka      ka 
+ELWT:   22.230  39.530   2.930   1.320    .110    .400    .270    .800   .950    .350  31.700
+
+K-963
+ELEM:       Si      Ba      Zn      Ge       P      Mg      Zr      Ti    Ni      Eu       U      Th      Cr       O
+XRAY:      ka      la      ka      ka      ka      ka      la       ka    ka      la      ma      ma      ka      ka 
+ELWT:   21.960  39.210   2.930    .470    .330    .340    .610    .320   .0032   .0073   .0013   .0005   .0029   .1768
+
+K-1013 (#602) density 2.130
+ELEM:       Al      Mg       P       O      Ti      Cr      Ni      Ge     Zr      Ba      Eu      Th       U
+
+XRAY:      ka      ka      ka      ka      ka      ka      ka      ka      la      la      la      ma      ma 
+ELWT:    6.080   5.860  32.260  53.050    .210    .140    .310    .340    .450    .520    .530    .100    .150
+
+K-1718 (#171)
+ELEM:       Na      Si      Ca      Fe       O
+XRAY:      ka      ka      ka      ka      ka 
+ELWT:   14.837  28.048   3.574  10.491  43.050
+
+
+K-0373 (#172) NBS glass 5.0??
+ELEM:      Na      Si      Zn      Ba       U       O
+XRAY:      ka      ka      ka      la      ma      ka 
+ELWT:   10.430  31.850   4.940  10.380    .054  42.340
+
+K-0375 (#173) NBS Glass 5.0??
+ELEM:       Na      Si     Zn      Ba       U       O
+XRAY:      ka      ka      ka      la      ma      ka 
+ELWT:   10.420  31.830   4.940  10.370    .110  42.320
+
+Corning 1737 Glass (#177) density = 2.540
+ELEM:      BaO     SrO   As2O3     CaO    SiO2   Al2O3     MgO     O     B2O3
+XRAY:      la      la      la      ka      ka      ka      ka      ka     ka 
+OXWT:    9.635   1.776    .565   4.004  59.209  16.746    .806    .000   7.258
+ELWT:    8.630   1.502    .428   2.862  27.676   8.863    .486  47.299   2.254
+
+
+
+
+
+
+
+
+
+
+
+W Corning Glass density = 5?
+ELEM:       Si      Al      Ca      Mg       B      Cs       V      Mn     Cu      Co      Ba      La      Th       O
+XRAY:      ka      ka      ka      ka      ka      la      ka      ka      ka      ka      la      la      ma      ka 
+ELWT:   26.595   9.283   4.453   5.240   1.363    .679    .442    .503    .604    .566    .699    .674    .694  48.205
+
+
+X Corning Glass density=5?
+ELEM:       Ni       O      Si      Al      Ca      Mg       B      Rb     Zr      Sr       Y      Pb      Zn       U
+XRAY:      ka      ka      ka      ka      ka      ka      ka      la      la      la      la      ma      ka      ma
+ELWT:     .574  48.182  26.595   9.289   4.460   5.246   1.351    .457    .563    .660    .622    .696    .635    .670
+
+
+Harvard Quartz (2301) Density =  2.649
+ELEM:       Si       O
+XRAY:      ka      ka 
+ELWT:   46.740  53.550
+
+
+
+
+
+
+
+
+
+
+
+

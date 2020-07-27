@@ -1,0 +1,5 @@
+# Corning 1737 Glass (#177) density = 2.540,,,,,"name: ""Corning-1737-glass""",,,,,
+ELEM, BaO,     SrO,   As2O3,     CaO,    SiO2,   Al2O3,     MgO,     O,    B2O3,sum
+XRAY, la,      la,      la,      ka,      ka,      ka,      ka,      ka,     ka ,
+OXWT,9.635,1.776,0.565,4.004,59.209,16.746,0.806,0,7.258,99.999
+ELWT,8.63,1.502,0.428,2.862,27.676,8.863,0.486,47.299,2.254,100

@@ -1,0 +1,4 @@
+
+s316H = epq.Material(epq.Composition(map(dtsa2.element,["Mn","Cr","Mo","Ni","Fe"],),
+                                                       [0.016,0.169,0.022,0.119,0.667],
+                                                       "316H steel"),epq.ToSI.gPerCC(7.8))

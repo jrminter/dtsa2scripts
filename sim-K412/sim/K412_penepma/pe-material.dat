@@ -1,0 +1,35 @@
+
+ **********************************
+ **   PENELOPE  (version 2012)   **
+ **********************************
+
+ EMIN = 5.0000E+01 eV,  EMAX = 1.5000E+04 eV
+
+
+ **********************
+ **   1st material   **
+ **********************
+
+ Material data file: NBS-K-412-glass.mat 
+
+ *** Simulation parameters:
+     Electron absorption energy = 5.0000E+01 eV
+       Photon absorption energy = 5.0000E+01 eV
+     Positron absorption energy = 5.0000E+01 eV
+      C1 = 2.0000E-01,       C2 = 2.0000E-01
+     WCC = 5.0000E+01 eV,   WCR = 5.0000E+01 eV
+
+ PENELOPE (v. 2012)  Material data file ...............
+ Material: NBS K-412 mineral glass                                       
+ Mass density = 2.60000000E+00 g/cm**3
+ Number of elements in the molecule =  8
+    Element: Si (Z=14), atoms/molecule = 2.76987215E-01
+    Element: Fe (Z=26), atoms/molecule = 5.08730246E-02
+    Element: Mg (Z=12), atoms/molecule = 1.76005165E-01
+    Element: Ca (Z=20), atoms/molecule = 9.97963947E-02
+    Element: Al (Z=13), atoms/molecule = 6.67248562E-02
+    Element: Mn (Z=25), atoms/molecule = 5.14342156E-04
+    Element: O  (Z= 8), atoms/molecule = 1.00000000E+00
+    Element: Na (Z=11), atoms/molecule = 6.86378585E-04
+ Mean excitation energy = 1.37474886E+02 eV
+ PENELOPE (v. 2012)  End of material data file ........

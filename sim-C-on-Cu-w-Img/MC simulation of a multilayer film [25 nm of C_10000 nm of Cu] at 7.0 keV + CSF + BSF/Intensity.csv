@@ -1,0 +1,28 @@
+MC simulation of a multilayer film [25 nm of C,10000 nm of Cu] at 7.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	1390267
+Transition	Generated	Transmitted
+C K-L3	322.86089520981574	319.2925067851854
+Cu K-L3	0.0	0.0
+Cu K-M3	0.0	0.0
+Cu L3-M5	2183.8531401101122	1882.0763968610634
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	136216
+Transition	Generated	Transmitted
+C K-L3	0.08481990843914662	0.08381661528506218
+Cu K-L3	0.0	0.0
+Cu K-M3	0.0	0.0
+Cu L3-M5	2.314762933283374	1.405591548998797
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	138154
+Transition	Generated	Transmitted
+C K-L3	0.053335062029300294	0.05275216225628206
+Cu K-L3	0.0	0.0
+Cu K-M3	0.0	0.0
+Cu L3-M5	2.2082801908270793	1.765742941024843

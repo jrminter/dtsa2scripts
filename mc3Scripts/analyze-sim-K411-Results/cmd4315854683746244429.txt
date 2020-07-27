@@ -1,0 +1,13 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.1
+1> import dtsa2.jmGen as jmg
+1> caf2=material("CaF2", density=3.18)
+2> listSpectra()
+Name	Spectrum
+s2	CaF2
+3> dir(s2)
+['NullSpectrum', '__add__', '__class__', '__copy__', '__deepcopy__', '__delattr__', '__dict__', '__doc__', '__ensure_finalizer__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__initProxy__', '__init__', '__le__', '__len__', '__lt__', '__module__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__str__', '__sub__', '__subclasshook__', '__supernames__', '__unicode__', '__weakref__', '_getPyInstance', '_getPySystemState', '_setPyInstance', '_setPySystemState', 'abs', 'applyLLT', 'attach', 'autoOffset', 'backgroundCorrect', 'beamEnergy', 'channel', 'channelCount', 'channelWidth', 'class', 'classDictInit', 'clone', 'compareTo', 'composition', 'display', 'duaneHunt', 'energies', 'energy', 'equals', 'finalize', 'firstNonZeroChannel', 'fromXML', 'getChannelCount', 'getChannelWidth', 'getClass', 'getCounts', 'getFWHMatMnKa', 'getProperties', 'getWrapped', 'getZeroOffset', 'hashCode', 'initializeSpectrumIndex', 'integrate', 'lastNonZeroChannel', 'liveTime', 'maxChannel', 'notify', 'notifyAll', 'offset', 'partition', 'peakIntegral', 'positiveDefinite', 'probeCurrent', 'properties', 'property', 'realTime', 'remap', 'rename', 'save', 'scale', 'setAsStandard', 'setEnergyScale', 'setFWHMatMnKa', 'setLiveTime', 'setMacroImage', 'setMicroImage', 'setProbeCurrent', 'smooth', 'subSample', 'sumCounts', 'super__getChannelWidth', 'super__getZeroOffset', 'super__toString', 'super__toXML', 'takeOffAngle', 'toDouble', 'toString', 'toXML', 'totalCounts', 'wait', 'wrapped', 'zeroOffset']
+4> s2.setAsStandard(caf2)
+5> s2.display()
+6> clear()

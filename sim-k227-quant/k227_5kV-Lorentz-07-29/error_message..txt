@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "C:/Users/johnr/Documents/git/dtsa2Scripts/sim-k227-quant/sim-k227-quant.py", line 162, in <module>
+    qua = quantify(spc_k227, {"SiO":spc_sio, "Pb":spc_pb},
+  File "C:\Apps\NIST_DTSA-II_Lorentz_2020-05-26\Lib\dtsa2\__init__.py", line 1320, in quantify
+    return qus.compute(unknown)
+	at Jama.SingularValueDecomposition.<init>(SingularValueDecomposition.java:181)
+	at Jama.Matrix.svd(Matrix.java:797)
+	at gov.nist.microanalysis.Utility.LinearLeastSquares.perform(LinearLeastSquares.java:87)
+	at gov.nist.microanalysis.EPQLibrary.FilterFit.perform(FilterFit.java:270)
+	at gov.nist.microanalysis.EPQLibrary.FilterFit.updateUnknown(FilterFit.java:572)
+	at gov.nist.microanalysis.EPQLibrary.FilterFit.getKRatios(FilterFit.java:410)
+	at gov.nist.microanalysis.EPQLibrary.QuantifyUsingStandards.compute(QuantifyUsingStandards.java:508)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+java.lang.ArrayIndexOutOfBoundsException: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 0

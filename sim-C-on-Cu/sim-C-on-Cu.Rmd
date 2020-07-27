@@ -1,0 +1,133 @@
+---
+title: "Monte Carlo simulation of C on Cu"
+author: "John Minter"
+date: "July 7, 2015"
+output: html_document
+---
+
+```{r, echo=FALSE}
+gitDir <- Sys.getenv("GIT_HOME")
+wd <- paste0(gitDir,'/dtsa2Scripts/sim-C-on-Cu')
+setwd(wd)
+```
+
+The objective was to simulate the effect of a C layer on a Cu substrate using the `mcSimulate3.py` wrappers supplied by `DTSA-II Iona`. This was accomplished using the script `py/sim-C-on-Cu.py` to compute 250 trajectories per point for accelerating voltages of 7, 10, 15, and 20 kV. The bulk C and Cu standard spectra were simulated at each voltage and then the spectra from the thin C film on a thick Cu substrate were simulated in 1 nm intervals from 1 to 500 nm. The K-ratios for the `Cu-Ka` and `Cu-La` transitions were computed and the thickness, kCKa, and kCuLa for each C thickness and wrote the data to a `.csv` file for each voltage.
+
+Next, the `R/anaConCuNkV.R` scripts were used to analyze each voltage, `N` kV. The basic analysis for 7 kV is reproduced below (with adaptations for the directory structure)
+
+```{r}
+strCsv <- './csv/sim-C-on-Cu-7kV.csv'
+
+df <- read.csv(strCsv, header = TRUE, as.is = TRUE)
+kCKa.loess <- loess(kCKa~tNm,data=df)
+print(kCKa.loess)
+kCKa.predict <- predict(kCKa.loess, data.frame(tNm=df$tNm))
+kCuLa.loess <- loess(kCuLa~tNm,data=df)
+kCuLa.predict <- predict(kCuLa.loess, data.frame(tNm=df$tNm))
+print(kCuLa.loess)
+```
+
+The plotting was encapsulated in a function:
+
+```{r}
+do.plot <- function(){
+  sca <- 0.7
+  oldR <- par("mfrow")
+  oldM <- par("mar")
+  par(mar=c(4.1, 4.1, 0.5, 0.5))
+  par(mfrow=c(2,1))
+  plot(kCKa~tNm,data=df, type='n', xlab="C thickness [nm]",
+       ylab="C Ka K-ratio", cex.axis=sca, cex.lab=sca)
+  points(kCKa~tNm,data=df, pch=19, cex=.3)
+  lines(df$tNm, kCKa.predict, col='red', lwd=2)
+  text(350,0.15,"Monte Carlo simulation of C on Cu at 7 kV",
+       cex=0.8)
+  legend("topleft", c("MC3 simulation", "loess smooth"),
+         cex=c(.7,.7), pch=c(19, NA), lwd=c(NA,2),
+         col=c('black', 'red'))
+
+  plot(kCuLa~tNm,data=df, type='n', xlab="C thickness [nm]",
+       ylab="Cu La K-ratio", cex.axis=sca, cex.lab=sca)
+  points(kCuLa~tNm,data=df, pch=19, cex=.3)
+  lines(df$tNm, kCuLa.predict, col='red', lwd=2)
+  text(350,0.9,"Monte Carlo simulation of C on Cu at 7 kV",
+       cex=0.8)
+  legend("bottomleft", c("MC3 simulation", "loess smooth"),
+         cex=c(.7,.7), pch=c(19, NA), lwd=c(NA,2),
+         col=c('black', 'red'))
+
+  par(mfrow=oldR)
+  par(mar=oldM)
+}
+```
+
+which we may then call.
+
+```{r, fig.width=7.5, fig.height=5, warning=FALSE}
+do.plot()
+```
+
+Finally, we save a data frame with predicted values for each voltage.
+
+```{r, tidy=TRUE}
+c.on.cu.7kV <- data.frame(tNmC=df$tNm, kCKa=kCKa.predict,
+                          kCuLa=kCuLa.predict)
+strRD <- './RData/c.on.cu.7kV.RData'
+save(c.on.cu.7kV, file=strRD)
+```
+
+We can now load the data for each kV.
+
+```{r}
+load('./RData/c.on.cu.7kV.RData')
+load('./RData/c.on.cu.10kV.RData')
+load('./RData/c.on.cu.15kV.RData')
+load('./RData/c.on.cu.20kV.RData')
+```
+
+Let's now construct a plot of all the data
+
+```{r, tidy=TRUE}
+do.full.plot <- function(){
+  sca <- 0.8
+  pal <- c('#9ecae1','#6baed6','#3182bd','#08519c')
+  oldR <- par("mfrow")
+  oldM <- par("mar")
+  par(mar=c(4.1, 4.1, 0.5, 0.5))
+  par(mfrow=c(2,1))
+  plot(kCKa~tNmC, data=c.on.cu.7kV, type='n', xlab="C thickness [nm]", ylab="C Ka K-ratio", cex.axis=sca, cex.lab=sca)
+  lines(c.on.cu.7kV$tNmC,  c.on.cu.7kV$kCKa,  col=pal[1], lwd=2)
+  lines(c.on.cu.10kV$tNmC, c.on.cu.10kV$kCKa, col=pal[2], lwd=2)
+  lines(c.on.cu.15kV$tNmC, c.on.cu.15kV$kCKa, col=pal[3], lwd=2)
+  lines(c.on.cu.20kV$tNmC, c.on.cu.20kV$kCKa, col=pal[4], lwd=2)
+  legend("topleft", c("7kV", "10kV", "15kV","20kV"),
+         cex=.7, lwd=2, col=c(pal[1], pal[2], pal[3], pal[4]))
+  
+  plot(kCuLa~tNmC,data=c.on.cu.7kV, type='n', xlab="C thickness [nm]", ylab="Cu La K-ratio", cex.axis=sca, cex.lab=sca)
+
+  lines(c.on.cu.7kV$tNmC,  c.on.cu.7kV$kCuLa,  col=pal[1], lwd=2)
+  lines(c.on.cu.10kV$tNmC, c.on.cu.10kV$kCuLa, col=pal[2], lwd=2)
+  lines(c.on.cu.15kV$tNmC, c.on.cu.15kV$kCuLa, col=pal[3], lwd=2)
+  lines(c.on.cu.20kV$tNmC, c.on.cu.20kV$kCuLa, col=pal[4], lwd=2)
+  legend("bottomleft", c("7kV", "10kV", "15kV","20kV"),
+         cex=.7, lwd=2, col=c(pal[1], pal[2], pal[3], pal[4]))
+  par(mfrow=oldR)
+  par(mar=oldM)
+}
+```
+
+And do the plot
+
+```{r, fig.width=7.5, fig.height=5, warning=FALSE}
+do.full.plot()
+
+bSavePlots=FALSE
+
+if(bSavePlots==TRUE){
+  library(rEDS)
+  rsPlotPng(do.full.plot(), "./plt/c-on-cu.png", width = 7.5,
+            height = 5, pts = 16, dpi = 100)
+  rsPlotPdf(do.full.plot(), "./plt/c-on-cu.pdf", width = 9,
+            height = 6, pts = 12)
+}
+```

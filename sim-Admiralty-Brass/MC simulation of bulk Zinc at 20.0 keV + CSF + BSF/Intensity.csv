@@ -1,0 +1,25 @@
+MC simulation of bulk Zinc at 20.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	20
+# of scattering events	8318
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Zn K-L3	9746.351159568678	9593.703225826906
+Zn K-M3	1210.1345307741497	1195.978355195978
+Zn L3-M5	54612.831985153156	28119.483865973296
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	20
+# of scattering events	822
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Zn K-L3	768.1208389532022	608.9579400991354
+Zn K-M3	95.3720562501895	79.43589378090122
+Zn L3-M5	106.91032822403604	34.672167298770155
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	20
+# of scattering events	849
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Zn K-L3	0.0	0.0
+Zn K-M3	0.0	0.0
+Zn L3-M5	115.71688022693631	48.93745687732916

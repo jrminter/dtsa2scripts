@@ -1,0 +1,36 @@
+---
+title: "Analyze Sirion Sweet Spot"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Objective
+
+The objective of this experiment was to determine the optimum postion for the specimen in the **FEI Sirion** FEG-SEM.
+
+```{r}
+gitDir <- Sys.getenv("GIT_HOME")
+rmdDir <- paste0(gitDir, '/dtsa2Scripts/anaSirion/Rmd/')
+setwd(rmdDir)
+
+csvFil <- '../dat/2016-06-17-30kV-Mn-HR-det-posn-analysis.csv'
+
+df <- read.csv(csvFil,header=TRUE, as.is=TRUE)
+
+max.mn.cts <- max(df$mn.ka.cts.per.na.sec.mu)
+loc <- which(df$mn.ka.cts.per.na.sec.mu == max.mn.cts)
+max.wd <- df$dist.mm[loc]
+
+plot(mn.ka.cts.per.na.sec.mu~dist.mm, data=df, type='n',
+     xlab='working distance [mm]',
+     ylab=expression(paste("MnK", alpha, " counts per nA sec")))
+points(mn.ka.cts.per.na.sec.mu~dist.mm, data=df, pch=19)
+arrows(df$dist.mm,
+       df$ mn.ka.cts.per.na.sec.mu - df$mn.ka.cts.per.na.sec.unc, 
+       df$dist.mm,
+       df$mn.ka.cts.per.na.sec.mu + df$mn.ka.cts.per.na.sec.unc,
+       length=0.05, angle=90, code=3)
+```
+
+Note that the optimum working distance in `HR Mode` is `r max.wd` mm.

@@ -1,0 +1,15 @@
+K412 using Nicholas Ritchie's composition
+Elemental Composition Std 5014 in my CalcZAF Standard Database
+
+Density = 2.6
+
+Average Total Oxygen:         .000     Average Total Weight%:    1.001
+Average Calculated Oxygen:    .000     Average Atomic Number:   12.725
+Average Excess Oxygen:        .000     Average Atomic Weight:   22.041
+
+ELEM:        O      Mg      Al      Si      Ca      Fe
+XRAY:      ka      ka      ka      ka      ka      ka 
+ELWT:     .431    .118    .050    .214    .110    .078
+KFAC:    .0017   .0008   .0003   .0016   .0010   .0007
+ZCOR:   2.5227  1.4980  1.4656  1.3081  1.0816  1.1838
+AT% :   59.371  10.696   4.042  16.770   6.041   3.081

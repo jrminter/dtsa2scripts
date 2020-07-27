@@ -1,0 +1,40 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.1
+1> tabulate(selected())
+Name	O	Al	Si	Ca	Ti	Fe	Zn	Ba	Total
+K309-15-kV	37.9945	7.8947	18.8471	10.7828	0.0527	10.5587	0.8665	13.9387	100.9356
+
+Simulation of
+K309-15-kV	37.9945	7.8947	18.8471	10.7828	0.0527	10.5587	0.8665	13.9387	100.9356
+
+Average	    37.9945	7.8947	18.8471	10.7828	0.0527	10.5587	0.8665	13.9387
+Std. Dev.	0.0000	0.0000	0.0000	0.0000	0.0000	0.0000	0.0000	0.0000
+
+1> listTransitions("Fe")
+IUPAC	Siegbahn	Weight	Energy	Wavelength
+     	        	     	(keV) 	  (?)
+Fe L3-M1	Fe L?	0.2470	0.6152	20.1535
+Fe L2-M1	Fe L?	0.0890	0.6282	19.7364
+Fe L2-M3	Fe L?17	0.0001	0.6671	18.5855
+Fe L3-M5	Fe L?1	1.0000	0.7045	17.5989
+Fe L3-M4	Fe L?2	0.1140	0.7045	17.5989
+Fe L2-M4	Fe L?1	0.3920	0.7175	17.28
+Fe L2-N1	Fe L?5	0.0105	0.718	17.268
+Fe L1-M3	Fe L?3	0.0586	0.7921	15.6526
+Fe L1-M2	Fe L?4	0.0314	0.7921	15.6526
+Fe K-L2	Fe K?2	0.1930	6.3909	1.94001
+Fe K-L3	Fe K?1	1.0000	6.4039	1.93607
+Fe K-M3	Fe K?1	0.0995	7.058	1.75665
+Fe K-M2	Fe K?3	0.0572	7.058	1.75665
+Fe K-M5	Fe K?5	0.0001	7.1084	1.74419
+
+2> listTransitions("Ca")
+IUPAC	Siegbahn	Weight	Energy	Wavelength
+     	        	     	(keV) 	  (?)
+Ca L3-M1	Ca L?	1.0000	0.3027	40.9594
+Ca L2-M1	Ca L?	0.2300	0.3063	40.478
+Ca K-L2	Ca K?2	0.5070	3.6881	3.36174
+Ca K-L3	Ca K?1	1.0000	3.6917	3.35846
+Ca K-M3	Ca K?1	0.1240	4.0127	3.08979
+Ca K-M2	Ca K?3	0.0698	4.0127	3.08979

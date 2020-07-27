@@ -1,0 +1,31 @@
+
+ **********************************
+ **   PENELOPE  (version 2012)   **
+ **********************************
+
+ EMIN = 5.0000E+01 eV,  EMAX = 1.5000E+04 eV
+
+
+ **********************
+ **   1st material   **
+ **********************
+
+ Material data file: Orthoclase.MAT      
+
+ *** Simulation parameters:
+     Electron absorption energy = 5.0000E+01 eV
+       Photon absorption energy = 5.0000E+01 eV
+     Positron absorption energy = 5.0000E+01 eV
+      C1 = 2.0000E-01,       C2 = 2.0000E-01
+     WCC = 5.0000E+01 eV,   WCR = 5.0000E+01 eV
+
+ PENELOPE (v. 2012)  Material data file ...............
+ Material: Orthoclase                                                    
+ Mass density = 2.56000000E+00 g/cm**3
+ Number of elements in the molecule =  4
+    Element: K  (Z=19), atoms/molecule = 1.25011858E-01
+    Element: Al (Z=13), atoms/molecule = 1.24933546E-01
+    Element: Si (Z=14), atoms/molecule = 3.74931525E-01
+    Element: O  (Z= 8), atoms/molecule = 1.00000000E+00
+ Mean excitation energy = 1.32197208E+02 eV
+ PENELOPE (v. 2012)  End of material data file ........

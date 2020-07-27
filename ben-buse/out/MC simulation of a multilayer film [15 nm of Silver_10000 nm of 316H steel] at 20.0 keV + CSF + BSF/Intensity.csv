@@ -1,0 +1,22 @@
+MC simulation of a multilayer film [15 nm of Silver,10000 nm of 316H steel] at 20.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	4792588
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Fe K-M3	7731.59308447296	7350.260128855173
+Ag L2-M4	1754.6975920145308	1744.1288655654807
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	477194
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Fe K-M3	355.2732237782933	257.70021904340524
+Ag L2-M4	4.990527535618886	4.947839401743539
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	479124
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Fe K-M3	134.27459247699838	105.71360349487962
+Ag L2-M4	1.0835780309482663	1.0758328931860304

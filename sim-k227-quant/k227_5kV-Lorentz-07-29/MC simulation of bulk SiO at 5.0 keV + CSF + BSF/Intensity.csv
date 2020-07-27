@@ -1,0 +1,25 @@
+MC simulation of bulk SiO at 5.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	1261907
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	7643.136937721999	5967.30889958434
+Si K-L3	4193.416461523058	4102.948306182417
+Si K-M3	71.48007243182434	70.1321843384339
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	124885
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	4.840979226627687	2.1090653111601734
+Si K-L3	16.643344540955663	11.699091848812332
+Si K-M3	0.28369886087184576	0.20612794121949432
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	126248
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+O K-L3	7.435273164202487	1.3474386768316298
+Si K-L3	0.0	0.0
+Si K-M3	0.0	0.0

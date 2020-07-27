@@ -1,0 +1,275 @@
+---
+title: "Analysis of ZnO on Si"
+author: "J. R. Minter"
+date: 'Started: 2018-10-17, Last modified: 2018-10-18'
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+  html_document:
+    css: ./inc/jm-gray-vignette.css
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+abstract: |
+  I wanted to model EDS spectra from thin films of ZnO on Si and compute
+  the K-ratios for Zn, O, and Si as a function of the thickness of the
+  ZnO layer. The standards and unknowns were simulated using a python script at
+  4 and 7 kV. A total of 21 unknowns were simulated at each voltage with a ZnO
+  thickness ranging from 0.1 to 200 nm at each kV.
+  The script performed a filter fit on each unknown using the ZnO and Si spectra
+  as standards. The script then extracted the K-Ratios for the Zn La1, O Ka1,
+  and Si Ka1 transitions for each unknown. DTSA-II returns these as an
+  `UncertainValue2` object that reports both the mean value and the uncertainty
+  of the K-ratio. These values were written to the command line and stored as a
+  text file. I converted these to `.csv` files for easier processing and
+  plotting in R.
+  The variation of the K-ratio of each transition as a function of thickness
+  was plotted for each voltage. I fit the data to a `LOESS`  (locally estimated
+  scatter-plot smoothing) model and used the `predict()` function to compute a
+  smooth curve in 0.1 nm increments which were written to R `tibbles` (an
+  updated dataframe). These could be stored and used to estimate thickness for
+  an unknown specimen.
+  The 4 kV results are useful for estimation of ZnO thickness values between
+  0 and 50 nm thickness with good precision. The 7 kV results are useful up to
+  150 nm thickness.
+---
+
+```{r setup, cache = F, echo = F, message = F, warning = F, tidy = F}
+library(knitr)
+library(readr)
+library(pander)
+library(here)
+library(dplyr)
+library(ggplot2)
+# make this an external chunk that can be included in any file
+options(width = 72)
+opts_chunk$set(echo = F, message = F, warning = F)
+# opts_chunk$set(message = F, error = F, warning = F, comment = NA, fig.align = 'center', dpi = 100, tidy = F, cache.path = '.cache/', fig.path = 'figure/')
+
+panderOptions('table.split.table', Inf)
+
+options(xtable.type = 'html')
+knit_hooks$set(inline = function(x) {
+  if(is.numeric(x)) {
+    round(x, getOption('digits'))
+  } else {
+    paste(as.character(x), collapse = ', ')
+  }
+})
+```
+
+# Introduction
+
+This is a reproducible report written using RMarkdown. The accompanying
+`.Rmd` file contains the code chunks that perform the computations. These
+are hidden here to make the report easier to read.
+
+Spectra were simulated using NIST DTSA-II (Kelvin, release 2018-09-26).
+The simulation using 4 kV electrons was performed using the DTSA-II
+python script `sim-zno-on-si-4kV.py` and the simulation using 7 kV
+electrons used the script `sim-zno-on-si-4kV.py`. Each of these scripts
+generated output written to the command window. This originally reported
+O Ka1, ZnLa1, and SiKa1 K-ratios using the NIST `Uncertain Value2` class.
+I converted these to better work as comma delimited (.csv) files.
+These files were read from disk and converted to R `tibbles` (an enhanced
+dataframe) that is easily plotted. The first 5 rows of the 4 kV tibble
+are displayed in the table below.
+
+```{r loadData}
+
+fi <- here()
+bSave <- FALSE
+
+csv4kV <- '../../utility/sim-zno-on-si-4kV/sim-ZnO-on-Si-4kV.csv'
+csv7kV <- '../../utility/sim-zno-on-si-7kV/sim-ZnO-on-Si-7kV.csv'
+
+df4kV <- read_csv(csv4kV)
+df7kV <- read_csv(csv7kV)
+pander(head(df4kV))
+```
+
+# Compute LOESS fits
+
+We compute LOESS  (locally estimated scatter plot smoothing) fits of the
+K-ratios as a function of the ZnO thickness. R lets predict values for
+intermediate points. In this case we use a smaller value for the 
+`span` parameter (`0.5`) instead of the default (`0.75`). We could store
+these to predict thickness values from experimental data.
+
+```{r, computeLoessOK, results='hide'}
+loess.4kV.OK <- loess(O.Ka1.KR.mu ~ t.ZnO.nm, span=0.5, data=df4kV)
+# loess.4kV.OK
+t.ZnO.nm <- seq(from=0.1, to=150, by=0.1)
+df.lo.4kV.OK <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.4kV.OK$O.Ka1.KR.mu <- round(predict(loess.4kV.OK,
+                                          newdata = df.lo.4kV.OK), 6)
+
+loess.7kV.OK <- loess(O.Ka1.KR.mu ~ t.ZnO.nm, span=0.5, data=df7kV)
+# loess.7kV.OK
+df.lo.7kV.OK <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.7kV.OK$O.Ka1.KR.mu <- round(predict(loess.7kV.OK,
+                                          newdata = df.lo.7kV.OK), 6)
+# summary(df.lo.7kV.OK)
+
+```
+
+
+```{r, computeLoessZnLa}
+loess.4kV.ZnL <- loess(Zn.La1.KR.mu ~ t.ZnO.nm, span=0.5, data=df4kV)
+# loess.4kV.ZnL 
+df.lo.4kV.ZnL <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.4kV.ZnL$Zn.La1.KR.mu <- round(predict(loess.4kV.ZnL,
+                                          newdata = df.lo.4kV.ZnL), 6)
+
+loess.7kV.ZnL <- loess(Zn.La1.KR.mu ~ t.ZnO.nm, span=0.5, data=df7kV)
+# loess.7kV.ZnL
+df.lo.7kV.ZnL <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.7kV.ZnL$Zn.La1.KR.mu <- round(predict(loess.7kV.ZnL,
+                                            newdata = df.lo.7kV.ZnL), 6)
+# summary(df.lo.7kV.ZnL)
+
+```
+
+```{r, computeLoessSiKa}
+loess.4kV.SiK <- loess(Si.Ka1.KR.mu ~ t.ZnO.nm, span=0.5, data=df4kV)
+# loess.4kV.SiK 
+df.lo.4kV.SiK <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.4kV.SiK$Si.Ka1.KR.mu <- round(predict(loess.4kV.SiK,
+                                             newdata = df.lo.4kV.SiK), 6)
+
+loess.7kV.SiK <- loess(Si.Ka1.KR.mu ~ t.ZnO.nm, span=0.5, data=df7kV)
+# loess.7kV.SiK
+df.lo.7kV.SiK <- data.frame(t.ZnO.nm=t.ZnO.nm)
+df.lo.7kV.SiK$SiK.Ka1.KR.mu <- round(predict(loess.7kV.SiK,
+                                            newdata = df.lo.7kV.SiK), 6)
+# summary(df.lo.7kV.SiK)
+
+```
+# Plot O K
+
+Next we plot the O Ka1 K-ratio as a function of thickness for
+both 4 and 7 kV electron beams assuming a total dose of 5000 nA-sec.
+
+```{r plotOK}
+
+pltO  <-  ggplot() +
+          geom_point(data=df4kV, aes(x=t.ZnO.nm,
+                                     y=O.Ka1.KR.mu),
+                     color="darkblue") +
+          geom_line(data=df.lo.4kV.OK, aes(x=t.ZnO.nm,
+                                          y=O.Ka1.KR.mu),
+                     color="darkblue") +
+          geom_point(data=df7kV, aes(x=t.ZnO.nm,
+                                     y=O.Ka1.KR.mu),
+                     color="darkred") +
+          geom_line(data=df.lo.7kV.OK, aes(x=t.ZnO.nm,
+                                          y=O.Ka1.KR.mu),
+                     color="darkred") +
+          ggtitle("O Ka1 K-ratio from ZnO layers on Si with LOESS fit") +
+          xlab("ZnO thickness [nm]") +
+          ylab("O Ka1 K-ratio") +
+          annotate("text", label = '4 kV', x = 50, y = 0.6,
+                   size = 5, color = "darkblue") +
+          annotate("text", label = '7 kV', x = 50, y = 0.2,
+                    size = 5, color = "darkred") +
+          theme(axis.text=element_text(size=12),
+                axis.title=element_text(size=12),
+                plot.title=element_text(hjust = 0.5)) +
+        NULL
+print(pltO)
+
+if (bSave == TRUE) {
+  fi <- './zno-on-si-OKa1.pdf'
+  ggsave(pltO, file=fi, width=9.0, height=6.0, units="in", dpi=300)
+  fi <- './zno-on-si-OKa1.png'
+  # we want the png to be close to 1024x768...
+  ggsave(pltO, file=fi, width=9.0, height=6.0, units="in", dpi=113.7778)
+}
+```
+
+# Plot Zn La
+
+Then we plot the Zn Ka1 K-ratio as a function of thickness for
+both 4 and 7 kV electron beams.
+
+```{r plotZnL}
+
+pltZn <-  ggplot() +
+          geom_point(data=df4kV, aes(x=t.ZnO.nm,
+                                     y=Zn.La1.KR.mu),
+                     color="darkblue") +
+          geom_line(data=df.lo.4kV.ZnL,
+                    aes(x=t.ZnO.nm, y=Zn.La1.KR.mu),
+                    color="darkblue") +
+          geom_point(data=df7kV, aes(x=t.ZnO.nm,
+                                     y=Zn.La1.KR.mu),
+                     color="darkred") +
+          geom_line(data=df.lo.7kV.ZnL,
+                    aes(x=t.ZnO.nm, y=Zn.La1.KR.mu),
+                    color="darkred") +
+          ggtitle("Zn La1 K-ratio from ZnO layers on Si") +
+          xlab("ZnO thickness [nm]") +
+          ylab("Zn La1 K-ratio") +
+          annotate("text", label = '4 kV', x = 50, y = 0.6,
+                   size = 5, color = "darkblue") +
+          annotate("text", label = '7 kV', x = 50, y = 0.2,
+                    size = 5, color = "darkred") +
+          theme(axis.text=element_text(size=12),
+                axis.title=element_text(size=12),
+                plot.title=element_text(hjust = 0.5)) +
+        NULL
+print(pltZn)
+
+if (bSave == TRUE) {
+  fi <- './zno-on-si-ZnLa1.pdf'
+  ggsave(pltZn, file=fi, width=9.0, height=6.0, units="in", dpi=300)
+  fi <- './zno-on-si-ZnLa1.png'
+  # we want the png to be close to 1024x768...
+  ggsave(pltZn, file=fi, width=9.0, height=6.0, units="in", dpi=113.7778)
+}
+
+```
+
+# Plot Si Ka
+
+Then we plot the Si Ka1 K-ratio as a function of thickness for
+both 4 and 7 kV electron beams.
+
+```{r plotSiK}
+
+pltSi <-  ggplot() +
+          geom_point(data=df4kV, aes(x=t.ZnO.nm,
+                                     y=Si.Ka1.KR.mu),
+                     color="darkblue") +
+          geom_line(data=df.lo.4kV.SiK, aes(x=t.ZnO.nm,
+                                            y=Si.Ka1.KR.mu),
+                    color="darkblue") +
+          geom_point(data=df7kV, aes(x=t.ZnO.nm,
+                                     y=Si.Ka1.KR.mu),
+                     color="darkred") +
+          geom_line(data=df.lo.7kV.SiK, aes(x=t.ZnO.nm,
+                                           y=SiK.Ka1.KR.mu),
+                    color="darkred") +
+          ggtitle("Si Ka1 K-ratio from ZnO layers on Si") +
+          xlab("ZnO thickness [nm]") +
+          ylab("Si Ka1 K-ratio") +
+          annotate("text", label = '4 kV', x = 25, y = 0.28,
+                   size = 5, color = "darkblue") +
+          annotate("text", label = '7 kV', x = 25, y = 0.68,
+                    size = 5, color = "darkred") +
+          theme(axis.text=element_text(size=12),
+                axis.title=element_text(size=12),
+                plot.title=element_text(hjust = 0.5)) +
+        NULL
+print(pltSi)
+
+if (bSave == TRUE) {
+  fi <- './zno-on-si-SiKa1.pdf'
+  ggsave(pltSi, file=fi, width=9.0, height=6.0, units="in", dpi=300)
+  fi <- './zno-on-si-SiKa1.png'
+  # we want the png to be close to 1024x768...
+  ggsave(pltSi, file=fi, width=9.0, height=6.0, units="in", dpi=113.7778)
+}
+
+```

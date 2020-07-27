@@ -1,0 +1,283 @@
+<gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector id="1">
+  <mDetProperties id="2">
+    <mName>SDD (Medium, 4096)</mName>
+    <mProperties id="3" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>21</int>
+        <string>Aluminum layer thickness</string>
+        <double>0.0</double>
+        <string>Aluminum window thickness</string>
+        <double>40.0</double>
+        <string>Azimuthal angle</string>
+        <double>0.0</double>
+        <string>Dead layer</string>
+        <double>0.0</double>
+        <string>Detector GUID</string>
+        <string>b8b98369-7eb7-32eb-d2c8-c9d91a7e78f8</string>
+        <string>Detector area</string>
+        <double>30.0</double>
+        <string>Detector orientation</string>
+        <double-array id="4">
+          <double>-0.8191520442889918</double>
+          <double>-0.0</double>
+          <double>0.573576436351046</double>
+        </double-array>
+        <string>Detector position</string>
+        <double-array id="5">
+          <double>27.85116950582572</double>
+          <double>0.0</double>
+          <double>-2.5015988359355674</double>
+        </double-array>
+        <string>Detector thickness</string>
+        <double>0.45</double>
+        <string>Detector type</string>
+        <string>Silicon Drift Detector</string>
+        <string>Detector window</string>
+        <gov.nist.microanalysis.EPQLibrary.Detector.GridMountedWindow id="6">
+          <mProperties id="7" serialization="custom">
+            <SpectrumProperties>
+              <null/>
+              <int>5</int>
+              <string>Aluminum window thickness</string>
+              <double>40.0</double>
+              <string>Moxtek window thickness</string>
+              <double>0.3</double>
+              <string>Support grid open area</string>
+              <double>77.0</double>
+              <string>Support grid thickness</string>
+              <double>0.38</double>
+              <string>Window type</string>
+              <string>Ultra-thin window</string>
+            </SpectrumProperties>
+          </mProperties>
+          <mLayers id="8">
+            <gov.nist.microanalysis.EPQLibrary.Detector.XRayWindow_-Layer id="9">
+              <mThickness>3.0E-7</mThickness>
+              <mMaterial id="10" serialization="custom">
+                <Composition>
+                  <tree-map id="11">
+                    <entry>
+                      <Element id="12">
+                        <mAtomicNumber>1</mAtomicNumber>
+                      </Element>
+                      <UncertainValue2 id="13">
+                        <mValue>0.03911011053629149</mValue>
+                        <mSigmas id="14"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element id="15">
+                        <mAtomicNumber>6</mAtomicNumber>
+                      </Element>
+                      <UncertainValue2 id="16">
+                        <mValue>0.582549314217905</mValue>
+                        <mSigmas id="17"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element id="18">
+                        <mAtomicNumber>7</mAtomicNumber>
+                      </Element>
+                      <UncertainValue2 id="19">
+                        <mValue>0.06793603603000599</mValue>
+                        <mSigmas id="20"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element id="21">
+                        <mAtomicNumber>8</mAtomicNumber>
+                      </Element>
+                      <UncertainValue2 id="22">
+                        <mValue>0.3104045392157975</mValue>
+                        <mSigmas id="23"/>
+                      </UncertainValue2>
+                    </entry>
+                  </tree-map>
+                  <tree-map id="24">
+                    <entry>
+                      <Element reference="12"/>
+                      <UncertainValue2 id="25">
+                        <mValue>8.0</mValue>
+                        <mSigmas id="26"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element reference="15"/>
+                      <UncertainValue2 id="27">
+                        <mValue>10.0</mValue>
+                        <mSigmas id="28"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element reference="18"/>
+                      <UncertainValue2 id="29">
+                        <mValue>1.0</mValue>
+                        <mSigmas id="30"/>
+                      </UncertainValue2>
+                    </entry>
+                    <entry>
+                      <Element reference="21"/>
+                      <UncertainValue2 id="31">
+                        <mValue>4.0</mValue>
+                        <mSigmas id="32"/>
+                      </UncertainValue2>
+                    </entry>
+                  </tree-map>
+                  <double>1.0</double>
+                  <double>0.0</double>
+                  <string>C10H8O4N</string>
+                  <string>STOICIOMETRY</string>
+                </Composition>
+                <Material>
+                  <default>
+                    <mDensity>1389.9999999999998</mDensity>
+                  </default>
+                </Material>
+              </mMaterial>
+              <outer-class class="gov.nist.microanalysis.EPQLibrary.Detector.GridMountedWindow" reference="6"/>
+            </gov.nist.microanalysis.EPQLibrary.Detector.XRayWindow_-Layer>
+            <gov.nist.microanalysis.EPQLibrary.Detector.XRayWindow_-Layer id="33">
+              <mThickness>4.0E-8</mThickness>
+              <mMaterial id="34" serialization="custom">
+                <Composition>
+                  <tree-map id="35">
+                    <entry>
+                      <Element id="36">
+                        <mAtomicNumber>13</mAtomicNumber>
+                      </Element>
+                      <UncertainValue2 id="37">
+                        <mValue>1.0</mValue>
+                        <mSigmas id="38"/>
+                      </UncertainValue2>
+                    </entry>
+                  </tree-map>
+                  <tree-map id="39">
+                    <entry>
+                      <Element reference="36"/>
+                      <UncertainValue2 id="40">
+                        <mValue>1.0</mValue>
+                        <mSigmas id="41"/>
+                      </UncertainValue2>
+                    </entry>
+                  </tree-map>
+                  <double>1.0</double>
+                  <double>0.0</double>
+                  <string>Al</string>
+                  <string>STOICIOMETRY</string>
+                </Composition>
+                <Material>
+                  <default>
+                    <mDensity>2699.9999999999995</mDensity>
+                  </default>
+                </Material>
+              </mMaterial>
+              <outer-class class="gov.nist.microanalysis.EPQLibrary.Detector.GridMountedWindow" reference="6"/>
+            </gov.nist.microanalysis.EPQLibrary.Detector.XRayWindow_-Layer>
+          </mLayers>
+          <mOpenFraction>0.77</mOpenFraction>
+          <mLowEnergyCorrection>1.0</mLowEnergyCorrection>
+          <mCoverage>1.0</mCoverage>
+          <mName>Moxtek AP 3.3 (model)</mName>
+          <mGridMaterial id="42" serialization="custom">
+            <Composition>
+              <tree-map id="43">
+                <entry>
+                  <Element id="44">
+                    <mAtomicNumber>14</mAtomicNumber>
+                  </Element>
+                  <UncertainValue2 id="45">
+                    <mValue>1.0</mValue>
+                    <mSigmas id="46"/>
+                  </UncertainValue2>
+                </entry>
+              </tree-map>
+              <tree-map id="47">
+                <entry>
+                  <Element reference="44"/>
+                  <UncertainValue2 id="48">
+                    <mValue>1.0</mValue>
+                    <mSigmas id="49"/>
+                  </UncertainValue2>
+                </entry>
+              </tree-map>
+              <double>1.0</double>
+              <double>0.0</double>
+              <string>Si</string>
+              <string>STOICIOMETRY</string>
+            </Composition>
+            <Material>
+              <default>
+                <mDensity>2329.9999999999995</mDensity>
+              </default>
+            </Material>
+          </mGridMaterial>
+          <mGridThickness>3.8E-4</mGridThickness>
+        </gov.nist.microanalysis.EPQLibrary.Detector.GridMountedWindow>
+        <string>Elevation</string>
+        <double>35.0</double>
+        <string>Gold layer thickness</string>
+        <double>0.0</double>
+        <string>Moxtek window thickness</string>
+        <double>0.3</double>
+        <string>Nickel layer thickness</string>
+        <double>0.0</double>
+        <string>Optimal working distance</string>
+        <double>17.0</double>
+        <string>Solid angle</string>
+        <double>0.025951557093425604</double>
+        <string>Specimen-to-detector distance</string>
+        <double>34.0</double>
+        <string>Support grid open area</string>
+        <double>77.0</double>
+        <string>Support grid thickness</string>
+        <double>0.38</double>
+        <string>Window type</string>
+        <string>Ultra-thin window</string>
+      </SpectrumProperties>
+    </mProperties>
+    <mChannelCount>4096</mChannelCount>
+  </mDetProperties>
+  <mCalibration class="SiLiCalibration" id="50">
+    <mActiveDate id="51">1970-01-01 00:00:00.0 UTC</mActiveDate>
+    <mProperties id="52" serialization="custom">
+      <SpectrumProperties>
+        <null/>
+        <int>5</int>
+        <string>Calibration GUID</string>
+        <string>63395e11-1066-5d77-7aec-666ab66af5bb</string>
+        <string>Energy offset</string>
+        <double>0.17756939108183867</double>
+        <string>Energy scale</string>
+        <double>9.998690622828406</double>
+        <string>Resolution</string>
+        <double>130.63059978222515</double>
+        <string>Resolution measurement energy</string>
+        <double>5898.7</double>
+      </SpectrumProperties>
+    </mProperties>
+    <mContamination class="XRayWindow" id="53">
+      <mProperties id="54" serialization="custom">
+        <SpectrumProperties>
+          <null/>
+          <int>1</int>
+          <string>Support grid open area</string>
+          <double>100.0</double>
+        </SpectrumProperties>
+      </mProperties>
+      <mLayers id="55"/>
+      <mOpenFraction>1.0</mOpenFraction>
+      <mLowEnergyCorrection>1.0</mLowEnergyCorrection>
+      <mCoverage>1.0</mCoverage>
+    </mContamination>
+    <mLineshape class="BasicSiLiLineshape" id="56">
+      <mFWHMatMnKa>130.63059978222515</mFWHMatMnKa>
+    </mLineshape>
+    <mName>130.6 eV</mName>
+    <mFudgeFactor>1.0</mFudgeFactor>
+    <mFirstLElement>20</mFirstLElement>
+    <mFirstKElement>5</mFirstKElement>
+    <mFirstMElement>57</mFirstMElement>
+    <mFWHM>130.63059978222515</mFWHM>
+  </mCalibration>
+</gov.nist.microanalysis.EPQLibrary.Detector.EDSDetector>

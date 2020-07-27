@@ -1,0 +1,22 @@
+MC simulation of bulk Pb at 5.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	10000
+# of scattering events	1049318
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Pb M4-N6	2037.5679103383884	1962.8525285309065
+Pb M5-N7	3757.252188148551	3604.974166622983
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	10000
+# of scattering events	103967
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Pb M4-N6	15.005875099599484	11.155643836267076
+Pb M5-N7	25.941057348834605	19.157924382844055
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	10000
+# of scattering events	104802
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Pb M4-N6	0.996822355966167	0.7986530867365254
+Pb M5-N7	1.518880946645336	1.1934238625836078

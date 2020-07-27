@@ -1,0 +1,17 @@
+Welcome to DTSA-II's scripting interface.  Type 'help()' for more information.
+<Ctrl-Return> executes a command.  <Return> to create multi-line commands.
+Elapse: 0:00:00.2
+
+Running C:/Users/johnr/Documents/git/dtsa2Scripts/sim-k227-quant/sim-k227-quant.py
+[O K-L3, Si K-L3, Si K-M3, Pb M5-N7, Pb M4-N6]
+MC simulation of bulk k227 at 5.0 keV + CSF + BSF
+D:/dtsa2_sims/dat/k227-quant/spc_k227.msa
+[O K-L3, Si K-L3, Si K-M3]
+MC simulation of bulk SiO at 5.0 keV + CSF + BSF
+D:/dtsa2_sims/dat/k227-quant/spc_sio.msa
+[Pb M5-N7, Pb M4-N6]
+MC simulation of bulk Pb at 5.0 keV + CSF + BSF
+D:/dtsa2_sims/dat/k227-quant/spc_pb.msa
+k227-5kV = [O(0.0461±0.0002 mass frac),Pb(0.5967±0.0028 mass frac),?=0.6428±0.0029]
+195.835000038
+Elapse: 0:03:16.1

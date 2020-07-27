@@ -1,0 +1,25 @@
+MC simulation of bulk Copper at 20.0 keV + CSF + BSF
+Characteristic
+Type:	Characteristic
+# of electrons	20
+# of scattering events	8806
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Cu K-L3	12789.737522631192	12528.365294219775
+Cu K-M3	1555.3106816990096	1531.0598145915715
+Cu L3-M5	52377.725747071585	23754.531702672815
+Bremsstrahlung Fluorescence
+Type:	Continuum Fluorescence
+# of electrons	20
+# of scattering events	873
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Cu K-L3	982.2498054157065	761.0574277195102
+Cu K-M3	119.44761272516953	97.27889036225453
+Cu L3-M5	89.77862321512973	27.283152399657865
+Characteristic Fluorescence
+Type:	Characteristic Fluorescence
+# of electrons	20
+# of scattering events	906
+Transition	Generated (1/mSr)	Transmitted (1/mSr)
+Cu K-L3	0.0	0.0
+Cu K-M3	0.0	0.0
+Cu L3-M5	86.2942701654897	31.42469425691715
