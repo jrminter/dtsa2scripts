@@ -15,7 +15,7 @@ e0  = 15 # accelerating voltage
 
 # det = findDetector("Si(Li)") # Replace with your detector's name
 det   = findDetector("Oxford p4 05eV 4K") # Replace with your detector's name
-nTraj = 10000	# Number of electrons simulated
+nTraj = 100	# Number of electrons simulated
 
 rhoAg = 10.49
 
@@ -37,6 +37,7 @@ cr = material("Cr", density=7.19)
 mn = material("Mn", density=7.43)
 ni = material("Ni", density=8.90)
 fe = material("Fe", density=7.86)
+ag = material("Ag", density=10.5)
 
 
 def fullSimBulkStd(mat, det, e0, nTraj, outPath, dim=5.0e-6, lt=100,
@@ -135,82 +136,74 @@ def fullSimBulkStd(mat, det, e0, nTraj, outPath, dim=5.0e-6, lt=100,
     sim.save(fi)
     return(sim)
 
-
-#             simBulkStd(mat, det, e0, nTraj, lt=100, pc=1.0, ctd=True)
+#
+# Generate the needed spectra
+#
+#  simBulkStd(mat, det, e0, nTraj, lt=100, pc=1.0, ctd=True)
 # get 500 combines
 
-spc_cr = 
-
-
-
-
-spc_cr = dtsa2.jmMC3.simBulkStd(cr, det, e0, nE, 100, 5.0)
-sName = "Cr-%g" % (e0)
+spc_cr = fullSimBulkStd(cr, det, e0, nTraj, outPath, dim=5.0e-6,
+	                    lt=100,pc=1.0, emiSize=512, ctd=False)
+sName = "Cr-%g-%g" % (e0, nTraj)
 spc_cr.rename(sName)
 spc_cr.setAsStandard(cr)
 spc_cr.display()
 fi =  outPath + "/"
 fi += sName
-fi += "-%g-Traj.msa" % (nE)
+fi += "-%g-Traj.msa" % (nTraj)
 print(fi)
 spc_cr.save(fi)
 
-
-spc_mn = dtsa2.jmMC3.simBulkStd(mn, det, e0, nE, 100, 5.0)
-sName = "Mn-%g" % (e0)
+spc_mn = fullSimBulkStd(mn, det, e0, nTraj, outPath, dim=5.0e-6,
+	                    lt=100,pc=1.0, emiSize=512, ctd=False)
+sName = "Mn-%g-%g" % (e0, nTraj)
 spc_mn.rename(sName)
 spc_mn.setAsStandard(mn)
 spc_mn.display()
 fi =  outPath + "/"
 fi += sName
-fi += "-%g-Traj.msa" % (nE)
+fi += "-%g-Traj.msa" % (nTraj)
+print(fi)
 spc_mn.save(fi)
 
-spc_fe = dtsa2.jmMC3.simBulkStd(fe, det, e0, nE, 100, 5.0)
-sName = "Fe-%g" % (e0)
+spc_fe = fullSimBulkStd(fe, det, e0, nTraj, outPath, dim=5.0e-6,
+	                    lt=100,pc=1.0, emiSize=512, ctd=False)
+sName = "Fe-%g-%g" % (e0, nTraj)
 spc_fe.rename(sName)
 spc_fe.setAsStandard(fe)
 spc_fe.display()
 fi =  outPath + "/"
 fi += sName
-fi += "-%g-Traj.msa" % (nE)
+fi += "-%g-Traj.msa" % (nTraj)
+print(fi)
 spc_fe.save(fi)
 
-spc_ni = dtsa2.jmMC3.simBulkStd(ni, det, e0, nE, 100, 5.0)
-sName = "Ni-%g" % (e0)
+spc_ni = fullSimBulkStd(ni, det, e0, nTraj, outPath, dim=5.0e-6,
+	                    lt=100,pc=1.0, emiSize=512, ctd=False)
+sName = "Ni-%g-%g" % (e0, nTraj)
 spc_ni.rename(sName)
-spc_ni.setAsStandard(fe)
+spc_ni.setAsStandard(ni)
 spc_ni.display()
 fi =  outPath + "/"
 fi += sName
-fi += "-%g-Traj.msa" % (nE)
-spc_fe.save(fi)
+fi += "-%g-Traj.msa" % (nTraj)
+print(fi)
+spc_ni.save(fi)
 
-
-ag = material("Ag", density=10.49)
-#             simBulkStd(mat, det, e0, nTraj, lt=100, pc=1.0, ctd=True)
-# get 500 combines
-spc_ag = dtsa2.jmMC3.simBulkStd(ag, det, e0, nE, 100, 5.0)
-sName = "Ag-%g" % (e0)
+spc_ag = fullSimBulkStd(ag, det, e0, nTraj, outPath, dim=5.0e-6,
+	                    lt=100,pc=1.0, emiSize=512, ctd=False)
+sName = "Ag-%g-%g" % (e0, nTraj)
 spc_ag.rename(sName)
 spc_ag.setAsStandard(ag)
 spc_ag.display()
 fi =  outPath + "/"
 fi += sName
-fi += "-%g-Traj.msa" % (nE)
+fi += "-%g-Traj.msa" % (nTraj)
+print(fi)
 spc_ag.save(fi)
 
-spc_ss = dtsa2.jmMC3.simBulkStd(s316H, det, e0, nE, 100, 5.0)
-sName = "Stainless-Steel-%g" % (e0)
-spc_ss.rename(sName)
-spc_ss.setAsStandard(s316H)
-spc_ss.display()
-fi =  outPath + "/"
-fi += sName
-fi += "-%g-Traj.msa" % (nE)
-spc_ss.save(fi)
 
-
+# trsAg = getTransitionSet('Ag','K')
 # set xray transitions
 trs = [epq.XRayTransition(epq.Element.Ag, epq.XRayTransition.LB1),
 epq.XRayTransition(epq.Element.Fe, epq.XRayTransition.KB1)]
