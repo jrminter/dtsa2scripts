@@ -1101,7 +1101,7 @@ def fullSimBulkStd(mat, ctg, ctgThickNm, det, e0, nTraj, outPath,
     det = findDetector("Oxford p4 05eV 4K")
     cu = material("Cu", density=8.92)
 
-    outPath = "C:/Users/johnr/Documents/git/dtsa2Scripts/ben-buse/out"
+    outPath = "C:/Users/yourID/Documents/spc"
 
     a = fullSimBulkStd(cu, det, 15.0, 100, outPath,
                        dim=5.0e-6, lt=100,
