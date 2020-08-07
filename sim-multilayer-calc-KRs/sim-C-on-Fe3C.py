@@ -2,11 +2,9 @@
 #         1         2         3         4         5         6         7 |
 # 23456789012345678901234567890123456789012345678901234567890123456789012
 #
-# sim-C-on-Fe-4kV.py
-# jrm 2018-09-22  starting a run with 500 traj
-#.                This script required 1.955 min
-#                 Elapse: 0:01:58.6
-# jrm 2018-09-22  starting a run with 50,000 traj
+# sim-C-on-Fe3C-4kV.py
+#
+# jrm 2020-08-07  starting a run with 50,000 traj
 #.                This script required 188.683 min
 #                 Elapse: 3:08:41.7
 import sys
@@ -29,24 +27,20 @@ import datetime
 
 
 det = findDetector("Oxford p4 05eV 2K")
-e0       =     4    # kV
-nTraj    = 50000    # trajectories
+e0       =    10    # kV
+nTraj    = 10000    # trajectories
 lt       =   500    # sec
 pc       =     5.0 # nA
 dose     = pc * lt  # na-sec"
 bSaveSpc = True
+bVerbose = False
 
-lNmCsim = [  1.0,   5.0,  10.0,  15.0,  20.0,  25.0,  30.0,  35.0,  40.0,
-            45.0,  50.0,  60.0,  70.0,  80.0,  90.0, 100.0, 110.0, 120.0, 
-           130.0, 140.0, 150.0, 160.0, 170.0, 180.0, 190.0, 200.0]
+lNmCsim = [  5.0,  10.0,  15.0,  20.0,  22.0, 25.0,  30.0,  35.0,  40.0]
 
 
-homDir = os.environ['HOME']
-relPrj = "/Documents/work/dtsa2/sim-C-on-Fe-4kV"
-datDir = homDir + relPrj + "/msa-%g" % (nTraj)
-jmg.ensureDir(datDir)
-rptDir = homDir + relPrj + "/sim-C-on-Fe-4kV Results"
-csvFil = homDir + relPrj + "/dtsa2-C-on-Fe-%g-kV-kratios-%g-traj.csv" % (e0, nTraj)
+basePath = "C:/Users/johnr/Documents/git/dtsa2scripts/sim-multilayer-calc-KRs/"
+jmg.ensureDir(basePath)
+csvFil = basePath + "/dtsa2-C-on-Fe3C-%g-kV-kratios-%g-traj.csv" % (e0, nTraj)
 
 def sim_amc_coated_mat(mat, det, e0, nTraj, lt=100, pc=1.0, tc=20.0):
     """sim_amc_coated_mat(mat, det, e0, nTraj, lt=100, pc=1.0, tc=20.0)
@@ -116,8 +110,9 @@ start = time.time()
 
 DataManager.clearSpectrumList()
 
-c   = material("C", density=2.266)
-fe  = material("Fe", density=7.874)
+c     = material("C", density=2.266)
+fe    = material("Fe", density=7.86)
+fe3c  = material("Fe3C", density=4.93)
 
 # only get FeL at 7 kV
 trs = [epq.XRayTransitionSet(epq.Element.C, epq.XRayTransitionSet.K_FAMILY),
@@ -125,11 +120,12 @@ trs = [epq.XRayTransitionSet(epq.Element.C, epq.XRayTransitionSet.K_FAMILY),
 
 
 # First simulate the standards
+# Start with C
 startCycle = time.time()
 c_std_spc = jm3.simBulkStd(c, det, e0, nTraj, lt=lt, pc=pc)
 display(c_std_spc)
 sName = "%s-std-%g-kV-%g-traj" % ("C", e0, nTraj)
-fi =  datDir + "/"
+fi =  basePath + "/"
 fi += sName
 fi += ".msa"
 if bSaveSpc == True:
@@ -144,7 +140,7 @@ startCycle = time.time()
 fe_std_spc = jm3.simBulkStd(fe, det, e0, nTraj, lt=lt, pc=pc)
 display(fe_std_spc)
 sName = "%s-std-%g-kV-%g-traj" % ("Fe", e0, nTraj)
-fi =  datDir + "/"
+fi =  basePath + "/"
 fi += sName
 fi += ".msa"
 if bSaveSpc == True:
@@ -170,12 +166,12 @@ nSpec = len(lNmCsim)
 for tc in lNmCsim:
     i = i + 1
     startCycle = time.time()
-    msg = "Simulating %g nm C on Fe at %g kV %g traj" % (tc, e0, nTraj)
+    msg = "Simulating %g nm C on Fe3C at %g kV %g traj" % (tc, e0, nTraj)
     print(msg)
-    spc = sim_amc_coated_mat(fe, det, e0, nTraj, lt=lt, pc=pc, tc=tc)
+    spc = sim_amc_coated_mat(fe3c, det, e0, nTraj, lt=lt, pc=pc, tc=tc)
     display(spc)
-    sName = "%g-nm-C-on-Fe-%g-kV-%g-traj" % (tc, e0, nTraj)
-    fi =  datDir + "/"
+    sName = "%g-nm-C-on-Fe3C-%g-kV-%g-traj" % (tc, e0, nTraj)
+    fi =  basePath + "/"
     fi += sName
     fi += ".msa"
     if bSaveSpc == True:
@@ -186,10 +182,23 @@ for tc in lNmCsim:
     msg = "C layer %g of %g required %.3f min %s" % (i, nSpec, delta, tod)
     print msg
     res = jmg.compKRs(spc, stds, trs, det, e0)
-    print(res)
+    if(bVerbose):
+        print(res)
+    kc  = res[0]
+    kcMu = kc[0]
+    if(bVerbose):
+        print(kcMu)
+    kfe = res[1]
+    kfeMu = kfe[0]
+
+    if(bVerbose):
+        print(kfeMu)
+        print(kc)
+        print(kfe)
     lNmC.append(tc)
-    lkC.append(round(res[0], 5))
-    lkFe.append(round(res[1], 5))
+    lkC.append(kcMu)
+    lkFe.append(kfeMu)
+
 
 nMeas = len(lkFe)
 f = open(csvFil, 'w')
@@ -202,9 +211,10 @@ for i in range(nMeas):
     f.write(strLine)  
 f.close()
 
+print()
+
 
 # clean up cruft
-shutil.rmtree(rptDir)
 print "Done!"
 
 end = time.time()
