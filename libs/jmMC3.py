@@ -22,10 +22,11 @@
 # 2017-06-20  JRM  0.0.17  Added simBulkStd to sim uncoated standard
 # 2017-06-22  JRM  0.0.18  Added simCtdOxOnSi
 # 2018-10-14  JRM  0.0.19  Added getSpecPath
-# 2020-08-10  JRM  0.0.20  Added simCoatedSubstrate
+# 2020-08-10  JRM  0.0.20  Added simCoatedSubstrate moved from jmGen.py
+#                          and cleaned up examples.
 
 __revision__ = "$Id: jmMC3.py John Minter $"
-__version__ = "0.0.20"
+__version__ = "0.0.20 2020-08-10"
 
 import sys
 sys.packageManager.makeJavaPackage("gov.nist.microanalysis.NISTMonte.Gen3", "CharacteristicXRayGeneration3, BremsstrahlungXRayGeneration3, FluorescenceXRayGeneration3, XRayTransport3", None)
@@ -55,6 +56,210 @@ if 'defaultNumTraj' not in globals():
    defaultNumTraj = 1000
 if 'defaultDose' not in globals():
    defaultDose = 120.0
+
+def uncoatedSimBulkStd(mat, det, e0, nTraj, outPath,
+                       dim=5.0e-6, lt=100, pc=1.0, emiSize=512, ctd=False):
+    """
+    uncoatedSimBulkStd(mat, det, e0, nTraj, outPath,
+                       dim=5.0e-6, lt=100, pc=1.0, emiSize=512, ctd=False)
+
+    Use mc3 simulation to simulate an uncoated standard specimen
+
+    Parameters
+    ----------
+    mat - a dtsa material.
+        Note the material must have an associated density. It should
+        have a useful name.
+
+    det - a dtsa detector
+        Here is where we get the detector properties and calibration
+
+    e0 - float
+        The accelerating voltage in kV
+
+    nTraj - integer
+        The number of trajectories to run
+
+    outPath - string
+        The path to the directory for output
+
+    dim - float (5.0e-6)
+        The size of the emission images
+
+    lt - integer (100)
+        The live time (sec)
+
+    pc - float (1.0)
+        The probe current in nA
+
+    emiSize - int (default 512)
+        The width and depth of the emission images.
+
+    ctd - Boolean (False) - is C coated
+
+
+    Returns
+    -------
+    sim - DTSA scriptable spectrum 
+        The simulated standard spectrum
+    
+    Example
+    -------
+    import dtsa2 as dtsa2
+    import dtsa2.jmMC3 as jm3
+    outPath = "path/to/yours/spc"
+    cu = material("Cu", density=8.92)
+    det = findDetector("Si(Li)")
+    a = jm3.uncoatedSimBulkStd(cu, det, 15.0, 100, outPath,
+                               dim=5.0e-6, lt=100,
+                               pc=1.0, emiSize=512, ctd=False)
+    a.display()
+    """
+    start = time.time()
+    strCtg = ctg.getName()
+    strMat = mat.getName()
+    dose = pc * lt  # na-sec"
+    
+    # specify the transitions to generate
+    xrts = []
+
+    trs = mc3.suggestTransitions(mat, e0)
+    for tr in trs:
+        xrts.append(tr)
+
+    # At 20 kV the images are best at 2.0e-6
+    xtraParams={}
+    xtraParams.update(mc3.configureXRayAccumulators(xrts,True, True, True))
+    # note that the image size on the specimen is in meters...
+    xtraParams.update(mc3.configureEmissionImages(xrts, 2.0e-6, 512))
+    xtraParams.update(mc3.configurePhiRhoZ(2.0e-6))
+    xtraParams.update(mc3.configureTrajectoryImage(2.0e-6, 512))
+    xtraParams.update(mc3.configureVRML(nElectrons=100))
+    xtraParams.update(mc3.configureOutput(outPath))
+    print("Output sent to %s") % (outPath)
+    layers = [ [ctg, ctgThickNm*1.0e-9],
+               [mat, 1.0e-3]]
+    sim = mc3.multiFilm(layers, det, e0, withPoisson=True, nTraj=nTraj,
+                        dose=dose, sf=True, bf=True, xtraParams=xtraParams)
+    sName = "%g-nm-%s-on-%s-%g-kV" % (ctgThickNm, strCtg, strMat, e0)
+    sim.rename(sName)
+    sim.setAsStandard(mat)
+    sim.display()
+
+    end = time.time()
+    delta = end - start
+    msg = "This simulation required %.f sec" % (delta)
+    print(msg)
+    msg = "                         %.f min" % (delta/60.0)
+    print(msg)
+    msg = "                         %.f hr" % (delta/360.0)
+    print("")
+    return(sim)
+
+def fullSimBulkStd(mat, ctg, ctgThickNm, det, e0, nTraj, outPath,
+                   dim=5.0e-6, lt=100, pc=1.0, emiSize=512, ctd=False):
+    """
+    fullSimBulkStd(mat, ctg, ctgThickNm, det, e0, nTraj, outPath,
+                   dim=5.0e-6, lt=100, pc=1.0, emiSize=512, ctd=False)
+
+    Use mc3 simulation to simulate an uncoated standard specimen
+
+    Parameters
+    ----------
+    mat - a dtsa material.
+        Note the material must have an associated density. It should
+        have a useful name.
+
+    ctg - a dtsa2 material for the coating
+
+    det - a dtsa detector
+        Here is where we get the detector properties and calibration
+
+    e0 - float
+        The accelerating voltage in kV
+
+    nTraj - integer
+        The number of trajectories to run
+
+    outPath - string
+        The path to the directory for output
+
+    dim - float (5.0e-6)
+        The size of the emission images
+
+    lt - integer (100)
+        The live time (sec)
+
+    pc - float (1.0)
+        The probe current in nA
+
+    emiSize - int (default 512)
+        The width and depth of the emission images.
+
+    ctd - Boolean (False) - is C coated
+
+
+    Returns
+    -------
+    sim - DTSA scriptable spectrum 
+        The simulated standard spectrum
+    
+    Example
+    -------
+    import dtsa2 as dtsa2
+    import dtsa2.jmMC3 as jm3
+    outPath = "path/to/yours/spc"
+    cu = material("Cu", density=8.92)
+    det = findDetector("Si(Li)")
+    a = fullSimBulkStd(cu, det, 15.0, 100, outPath,
+                       dim=5.0e-6, lt=100,
+                       pc=1.0, emiSize=512, ctd=False)
+    a.display()
+
+    """
+    start = time.time()
+    strCtg = ctg.getName()
+    strMat = mat.getName()
+    dose = pc * lt  # na-sec"
+    
+    # specify the transitions to generate
+    xrts = []
+
+    trs = mc3.suggestTransitions(mat, e0)
+    for tr in trs:
+        xrts.append(tr)
+    trs = mc3.suggestTransitions(ctg, e0)
+    for tr in trs:
+        xrts.append(tr)
+
+    # At 20 kV the images are best at 2.0e-6
+    xtraParams={}
+    xtraParams.update(mc3.configureXRayAccumulators(xrts,True, True, True))
+    # note that the image size on the specimen is in meters...
+    xtraParams.update(mc3.configureEmissionImages(xrts, 2.0e-6, 512))
+    xtraParams.update(mc3.configurePhiRhoZ(2.0e-6))
+    xtraParams.update(mc3.configureTrajectoryImage(2.0e-6, 512))
+    xtraParams.update(mc3.configureVRML(nElectrons=100))
+    xtraParams.update(mc3.configureOutput(outPath))
+    print("Output sent to %s") % (outPath)
+    layers = [ [ctg, ctgThickNm*1.0e-9],
+               [mat, 1.0e-3]]
+    sim = mc3.multiFilm(layers, det, e0, withPoisson=True, nTraj=nTraj,
+                        dose=dose, sf=True, bf=True, xtraParams=xtraParams)
+    sName = "%g-nm-%s-on-%s-%g-kV" % (ctgThickNm, strCtg, strMat, e0)
+    sim.rename(sName)
+    sim.setAsStandard(mat)
+    sim.display()
+
+    end = time.time()
+    delta = end - start
+    msg = "This simulation required %.f sec" % (delta)
+    print(msg)
+    msg = "                         %.f min" % (delta/60.0)
+    print(msg)
+    msg = "                         %.f hr" % (delta/360.0)
+    print("")
+    return(sim)
 
 def simCoatedSubstrate(mat, ctg, thNm, det, e0, nTraj, lt=100, pc=1.0):
     """simCoatedSubstrate(mat, ctg, thNm, det, e0, nTraj, lt=100, pc=1.0)
@@ -91,9 +296,10 @@ def simCoatedSubstrate(mat, ctg, thNm, det, e0, nTraj, lt=100, pc=1.0):
     
     Example
     -------
+    import dtsa2 as dtsa2
     import dtsa2.jmMC3 as jm3
-    det = findDetector("Oxford p4 05eV 2K")
-    sio2 = material("SiO2", 2.65 )
+    det = findDetector("Si(Li)")
+    sio2 = material("SiO2", 2.65)
     si = material("Si", 2.3296)
     a = jm3.simCoatedSubstrate(si, sio2, 10.0, det, e0, nTraj, 100, 1.0)
     a.display()
@@ -154,7 +360,7 @@ def simCarbonCoatedMaterial(mat, det, e0, nTraj, lt=100, pc=1.0, tc=20.0):
     Example
     -------
     import dtsa2.jmMC3 as jm3
-    det = findDetector("Oxford p4 05eV 2K")
+    det = findDetector("Si(Li)")
     si = material("Si", density=2.3296)
     a = jm3.simCarbonCoatedMaterial(si, det, 20.0, 100, 100, 1.0, 20.0)
     a.display()
@@ -214,7 +420,7 @@ def getSpecPath(baseName, baseDir, e0, nTraj):
     import dtsa2.jmMC3 as jm3
     e0 = 15
     nTraj = 20000
-    det = findDetector("Oxford p4 05eV 4K")
+    det = findDetector("Si(Li)")
     c = material("C", density=2.266)
     a = jm3.simBulkStd(c, det, e0, nTraj, 100, 1.0, False)
     a.display()
@@ -258,7 +464,7 @@ def simBulkStd(mat, det, e0, nTraj, lt=100, pc=1.0, ctd=True):
     Example
     -------
     import dtsa2.jmMC3 as jm3
-    det = findDetector("Oxford p4 05eV 2K")
+    det = findDetector("Si(Li)")
     cu = material("Cu", density=8.92)
     a = jm3.simBulkStd(cu, det, 20.0, 100, 100, 1.0)
     a.display()
@@ -313,7 +519,7 @@ def simCtdOxOnSi(det, e0, nTraj, lt=100, pc=1.0, tox = 10.0, tc=20.0):
     Example
     -------
     import dtsa2.jmMC3 as jm3
-    det = findDetector("Oxford p4 05eV 2K")
+    det = findDetector("Si(Li)")
     a = jm3.simCtdOxOnSi(det, 3.0, 100, 100, 1.0, 10.0, 20.0)
     a.display()
 
@@ -379,7 +585,7 @@ def simCarbonCoatedStd(mat, det, e0, nTraj, lt=100, pc=1.0, tc=20.0):
     Example
     -------
     import dtsa2.jmMC3 as jm3
-    det = findDetector("Oxford p4 05eV 2K")
+    det = findDetector("Si(Li)")
     mgo = material("MgO", density=3.58)
     a = jm3.simCarbonCoatedStd(mgo, det, 20.0, 100, 100, 1.0, 20.0)
     a.display()

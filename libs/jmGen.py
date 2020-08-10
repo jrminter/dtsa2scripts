@@ -46,11 +46,12 @@ import dtsa2.jmGen as jmg
 2018-10-20  JRM  0.0.97  Added make_list_unc_val_string
 2018-11-05  JRM  0.0.97  Added create_material_from_mf
 2020-07-30  JRM  0.0.98  Added fullSimBulkStd function
+2020-08-10  JRM  0.0.99  Moved MC3 sim fuctions to jmMC3.py
 
 """
 
 __revision__ = "$Id: jmGen.py John R. Minter $"
-__version__ = "0.0.98"
+__version__ = "0.0.99 2020-08-10"
 
 import sys
 import os
