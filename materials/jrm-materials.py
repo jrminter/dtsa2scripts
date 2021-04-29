@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 #
-# last updated 2020-08-04
+# last updated 2021-04-29
 #
 
-print("last updated 2020-08-04")
+print("last updated 2021-04-29")
 
 def defineStd(elms,qty,name,density=None):
 	c=epq.Composition(map(element,elms),qty,name)
@@ -92,3 +92,7 @@ defineStd(("H","C","N",),(0.056986,0.679049,0.263965,),"PAN",1.184000)
 defineStd(("H","C","O","Cl",),(0.070600,0.744000,0.185500,0.003000,),"Epon828",1.160000)
 defineStd(("H","C","O",),(0.080542,0.599840,0.319618,),"PMMA",1.180000)
 defineStd(("B","N",),(0.5644,0.4356,),"BN",2.10)
+
+defineStd(("B","La",),(0.3183,0.4356,),"LaB6",4.72)
+defineStd(("La","P","O",),(0.5939,0.1324,0.2736,),"LaPO4",2.10)
+

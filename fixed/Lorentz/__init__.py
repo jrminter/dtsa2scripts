@@ -52,9 +52,9 @@ defaultStandards = { "O":"SiO2", "Ba":"BaF2", "F":"CaF2", "N":"BN", "Na":"NaCl",
 
 
 def run(script):
-   """run(script)
-   Runs the script in the file specified by script."""
-   MainFrame.runPythonScript(script)
+	"""run(script)
+	Runs the script in the file specified by script."""
+	MainFrame.runPythonScript(script)
 
 def execute(cmd, waitFor=False):
 	"""execute(cmd)
@@ -65,9 +65,9 @@ def execute(cmd, waitFor=False):
 		p.waitFor()
 
 def reportPath():
-   """reportPath()
-   Returns the directory into which the report and associated data is being written."""
-   return App.getReport().getFile().getParent()
+	"""reportPath()
+	Returns the directory into which the report and associated data is being written."""
+	return App.getReport().getFile().getParent()
 
 # Overloads the operators +,- and * to use spectrum math...
 class ScriptableSpectrum(epq.BaseSpectrum):
@@ -112,22 +112,22 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 
 	def abs(self):
 		"""s.abs()
-	Returns the absolute value of the channel data"""
+		Returns the absolute value of the channel data"""
 		return ScriptableSpectrum(epq.SpectrumUtils.getAbsSpectrum(self.wrapped))
 
 	def positiveDefinite(self):
 		"""s.positiveDefinite()
-	Returns the spectrum with any negative channel data points set to zero."""
+		Returns the spectrum with any negative channel data points set to zero."""
 		return ScriptableSpectrum(epq.SpectrumUtils.getPositiveSpectrum(self.wrapped))
 
 	def getChannelCount(self):
 		"""s.getChannelCount()
-	Returns the number of channels in the spectrum."""
+		Returns the number of channels in the spectrum."""
 		return self.wrapped.getChannelCount()
 
 	def getCounts(self, ch):
 		"""s.getCounts(ch)
-	Returns the number of x-ray event counts in channel ch or in a range of channels"""
+		Returns the number of x-ray event counts in channel ch or in a range of channels"""
 		if isinstance(ch, slice):
 			return sum(self.wrapped.getCounts(i) for i in range(*ch.indices(self.getChannelCount())))
 		else:
@@ -147,61 +147,61 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 
 	def getProperties(self):
 		"""s.getProperties()
-	Returns the SpectrumProperties object associated with the spectrum s."""
+		Returns the SpectrumProperties object associated with the spectrum s."""
 		return self.wrapped.getProperties()
 
 	def getWrapped(self):
 		"""s.getWrapped()
-	Returns the base Java spectrum from which this ScritableSpectrum was created."""
+		Returns the base Java spectrum from which this ScritableSpectrum was created."""
 		return self.wrapped
 
 	def rename(self, name):
 		"""s.rename('name')
-	Changes the display name of the spectrum s to name"""
+		Changes the display name of the spectrum s to name"""
 		epq.SpectrumUtils.rename(self.wrapped, name)
 		MainFrame.updateDisplayedSpectra()
 
 	def display(self):
 		"""s.display()
-	Adds this spectrum to the SpectrumList and displays it in the spectrum display"""
+		Adds this spectrum to the SpectrumList and displays it in the spectrum display"""
 		display(self.wrapped)
 
 	def property(self, name):
 		"""s.property(name)
-	Returns the spectrum property associated with the specified display name."""
+		Returns the spectrum property associated with the specified display name."""
 		return self.wrapped.getProperties().getPropertyByName(name)
 
 	def toString(self):
 		"""s.toString()
-	Returns the display name for this spectrum."""
+		Returns the display name for this spectrum."""
 		return self.wrapped.toString()
 
 	def scale(self, k):
 		"""s.scale(0.8)
-	Scale this spectrum by the specified amount."""
+		Scale this spectrum by the specified amount."""
 		return ScriptableSpectrum(epq.SpectrumUtils.scale(k, self.wrapped))
 
 	def maxChannel(self):
 		"""s.maxChannel()
-	Return the index of the maximum valued channel in the specified spectrum."""
+		Return the index of the maximum valued channel in the specified spectrum."""
 		return epq.SpectrumUtils.maxChannel(self.wrapped)
 
 	def firstNonZeroChannel(self):
 		"""s.firstNonZeroChannel()
-	Returns the first channel containing a non-zero value."""
+		Returns the first channel containing a non-zero value."""
 		return epq.SpectrumUtils.firstNonZeroChannel(self.wrapped)
 
 	def lastNonZeroChannel(self):
 		"""s.lastNonZeroChannel()
-	Returns the last channel containing a non-zero value."""
+		Returns the last channel containing a non-zero value."""
 		return epq.SpectrumUtils.lastNonZeroChannel(self.wrapped)
 
 	def peakIntegral(self, e0, e1):
 		"""s.peakIntegral(e0,e1)
-	Computes the background corrected peak integral for the range of energies between e0 and e1 (in eV)."""
+		Computes the background corrected peak integral for the range of energies between e0 and e1 (in eV)."""
 		res = epq.SpectrumUtils.backgroundCorrectedIntegral(self.wrapped, e0, e1)
 		return epu.UncertainValue2(res[0], res[1])
-	
+
 	def sumCounts(self, ch0, ch1):
 		"""s.sumCounts(ch0, ch1)
 	Sums the counts in the range of channels [ch0, ch1) (ch0 included, ch1 not included)"""
@@ -209,27 +209,27 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 
 	def integrate(self, e0, e1):
 		"""s.integrate(ch0, ch1)
-	Sums the counts in the range of energies [e0, e1] in eV.  Partial bins contribute partial counts.  Use sumCounts(...) to ensure bin boundaries."""
+		Sums the counts in the range of energies [e0, e1] in eV.  Partial bins contribute partial counts.  Use sumCounts(...) to ensure bin boundaries."""
 		return epq.SpectrumUtils.integrate(self.wrapped, e0, e1)
 
 	def toDouble(self):
 		"""s.toDouble()
-	Converts the spectrum channel data to an array of double values."""
+		Converts the spectrum channel data to an array of double values."""
 		return epq.SpectrumUtils.toDoubleArray(self.wrapped)
 
 	def energies(self):
 		"""s.energies()
-	Returns an array of energies corresponding to the average energy in each channel"""
+		Returns an array of energies corresponding to the average energy in each channel"""
 		return epq.SpectrumUtils.energyArray(self.wrapped)
 
 	def subSample(self, k):
 		"""s.subSample(k)
-	Returns a statistically valid sub-sampling of the spectrum s for an assumed live time of k seconds where k<s.liveTime()"""
+		Returns a statistically valid sub-sampling of the spectrum s for an assumed live time of k seconds where k<s.liveTime()"""
 		return wrap(epq.SpectrumUtils.subSampleSpectrum(self.wrapped, k))
-  
+
 	def partition(self, n=10):
 		"""s.partition(n)
-	Subdivides the counts in one spectrum into n spectra in a manner equivalent to if the n specta represent n equal time segments which sum to the total acquisition time."""
+		Subdivides the counts in one spectrum into n spectra in a manner equivalent to if the n specta represent n equal time segments which sum to the total acquisition time."""
 		res = epq.SpectrumUtils.partition(self.wrapped, n)
 		rr = []
 		for s in res:
@@ -238,75 +238,75 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 
 	def totalCounts(self, lld=True):
 		"""s.totalCounts([lld=True])
-	Returns the total number of counts in all channels of the spectrum s."""
+		Returns the total number of counts in all channels of the spectrum s."""
 		return epq.SpectrumUtils.totalCounts(self.wrapped, lld)
 
 	def liveTime(self):
 		"""s.liveTime()
-	Returns the live time (in seconds) associated with the spectrum s. Returns -1.0 if the live time is not specified."""
+		Returns the live time (in seconds) associated with the spectrum s. Returns -1.0 if the live time is not specified."""
 		return self.wrapped.getProperties().getNumericWithDefault(epq.SpectrumProperties.LiveTime, -1.0)
 	
 	def realTime(self):
 		"""s.realTime()
-	Returns the real (clock) time (in seconds) associated with the spectrum s. Returns -1.0 if the live time is not specified."""
+		Returns the real (clock) time (in seconds) associated with the spectrum s. Returns -1.0 if the live time is not specified."""
 		return self.wrapped.getProperties().getNumericWithDefault(epq.SpectrumProperties.RealTime, -1.0)
 
 	def setLiveTime(self, lt):
 		"""s.setLiveTime(lt)
-	Sets the live time associated with the spectrum s to lt seconds"""
+		Sets the live time associated with the spectrum s to lt seconds"""
 		self.wrapped.getProperties().setNumericProperty(epq.SpectrumProperties.LiveTime, lt)
 
 	def probeCurrent(self):
 		"""s.probeCurrent()
-	Returns the average probe current in nA as reported by this spectrum.  If the probe current is not defined then this method returns -1.0"""
+		Returns the average probe current in nA as reported by this spectrum.  If the probe current is not defined then this method returns -1.0"""
 		return epq.SpectrumUtils.getAverageFaradayCurrent(self.wrapped.getProperties(), -1.0)
 	
 	def attach(self, imgFile, fov=None):
 		"""s.attach(imgFile, fov=None)
-	Attaches the image in the specified file to the spectrum.  Optionally sets the fov in microns."""
+		Attaches the image in the specified file to the spectrum.  Optionally sets the fov in microns."""
 		fis = jio.FileInputStream(imgFile)
 		img = ii.ImageIO.read(fis)
 		if fov:
 			img = ept.ScaledImage(img, fov * 1.0e-6, fov * 1.0e-6, None)
 		fis.close()
 		setMicroImage(img)
-	
+
 	def setMicroImage(self, img):
 		"""s.setMicroImage(img)
-	Attached the specified micro-image to the spectrum."""
+		Attached the specified micro-image to the spectrum."""
 		self.wrapped.getProperties().setImageProperty(epq.SpectrumProperties.MicroImage, img)
-			
+
 	def setMacroImage(self, img):
 		"""s.setMicroImage(img)
-	Attached the specified macro-image to the spectrum."""
+		Attached the specified macro-image to the spectrum."""
 		self.wrapped.getProperties().setImageProperty(epq.SpectrumProperties.MacroImage, img)
 
 	def setProbeCurrent(self, pc):
 		"""s.setProbeCurrent(0.5)
-	Sets the probe current to the specified value in nA."""
+		Sets the probe current to the specified value in nA."""
 		p = self.wrapped.getProperties()
 		p.setNumericProperty(epq.SpectrumProperties.FaradayBegin, pc)
 		if p.isDefined(epq.SpectrumProperties.FaradayEnd):
 			p.setNumericProperty(epq.SpectrumProperties.FaradayEnd, pc)
-			
+
 	def beamEnergy(self):
 		"""s.beamEnergy()
-	Returns the beam energy (in keV) associated with the spectrum s."""
+		Returns the beam energy (in keV) associated with the spectrum s."""
 		return epq.SpectrumUtils.getBeamEnergy(self.wrapped) / 1000.0
 
 	def takeOffAngle(self):
 		"""s.takeOffAngle()
-	Returns the take-off angle (in degrees) associated with the spectrum s"""
+		Returns the take-off angle (in degrees) associated with the spectrum s"""
 		return jl.Math.toDegrees(epq.SpectrumUtils.getTakeOffAngle(self.wrapped.getProperties()))
 
 	def smooth(self):
 		"""s.smooth()
-	Performs a fifth-order Savitzky-Golay filter on the spectrum s."""
+		Performs a fifth-order Savitzky-Golay filter on the spectrum s."""
 		return ScriptableSpectrum(epq.SpectrumSmoothing.SavitzkyGolay5.compute(self.wrapped))
 	
 	def duaneHunt(self):
 		"""s.duaneHunt()
-	Computes the Duane-Hunt limit in keV for the spectrum s"""
+		Computes the Duane-Hunt limit in keV for the spectrum s"""
 		return epq.FromSI.keV(epq.DuaneHuntLimit.LinearDuaneHunt.compute(self.wrapped))
 
 	def setAsStandard(self, comp):
@@ -318,14 +318,14 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 
 	def setAsMicroanalyticalComposition(self, comp):
 		"""s.setAsMicroanalyticalComposition(comp)
-	Specify that the spectrum s has a microanalytical composition specified in comp"""
+		Specify that the spectrum s has a microanalytical composition specified in comp"""
 		if isinstance(comp, str):
 			comp = material(comp)
 		self.getProperties().setCompositionProperty(epq.SpectrumProperties.MicroanalyticalComposition, comp)
 
 	def backgroundCorrect(self):
 		"""s.backgroundCorrect()
-	Remove the modeled Bremsstrahlung background from this spectrum and return the resulting spectrum."""
+		Remove the modeled Bremsstrahlung background from this spectrum and return the resulting spectrum."""
 		p = self.getProperties()
 		try:
 			det = p.getDetector()
@@ -344,130 +344,142 @@ class ScriptableSpectrum(epq.BaseSpectrum):
 		return self -ScriptableSpectrum(ba.fitBackground(det, self.wrapped, c))
 
 	def setFWHMatMnKa(self, fwhm):
-	   """s.setFWHMatMnKa(fwhm)
-	   Set the FWHM at Mn Ka to the specified value in eV."""
-	   p = self.getProperties()
-	   p.setNumericProperty(epq.SpectrumProperties.Resolution, fwhm)
-	   p.getNumericWithDefault(epq.SpectrumProperties.ResolutionLine, epq.SpectrumUtils.E_MnKa)
+		"""s.setFWHMatMnKa(fwhm)
+		Set the FWHM at Mn Ka to the specified value in eV."""
+		p = self.getProperties()
+		p.setNumericProperty(epq.SpectrumProperties.Resolution, fwhm)
+		p.getNumericWithDefault(epq.SpectrumProperties.ResolutionLine, epq.SpectrumUtils.E_MnKa)
 		
 	def getFWHMatMnKa(self, defFwhm):
 		return epq.SpectrumUtils.getFWHMAtMnKA(self, defFwhm)
 
 	def save(self, filename):
 		"""s.save(filename)
-	Write this spectrum to an EMSA 1.0 format text file."""
+		Write this spectrum to an EMSA 1.0 format text file."""
 		os = jio.FileOutputStream(filename[0:2] + filename[2:].replace(":", ""))
 		ept.WriteSpectrumAsEMSA1_0.write(self.wrapped, os, ept.WriteSpectrumAsEMSA1_0.Mode.COMPATIBLE)
 		os.close()
 
 	def toXML(self, filename):
 		"""s.toXML(filename)
-	Convert this spectrum to a proprietary but full fidelity XML format. spectrumFromXML(filename), the inverse method, is a global function."""
+		Convert this spectrum to a proprietary but full fidelity XML format. spectrumFromXML(filename), the inverse method, is a global function."""
 		os = jio.FileOutputStream(filename)
 		self.wrapped.toXML(os)
 		os.close()
 
 	def __getslice__(self, low, high):
 		"""s.slice(lowCh,highCh)
-	Creates a spectrum containing only the data in channels between lowCh (inclusive) and highCh (exclusive)"""
+		Creates a spectrum containing only the data in channels between lowCh (inclusive) and highCh (exclusive)"""
 		return epq.SpectrumUtils.slice(self.wrapped, low, high)
 
 	def autoOffset(self):
 		"""s.autoOffset()
-	Offset the spectrum channel data so that the minimum channel equals zero counts."""
+		Offset the spectrum channel data so that the minimum channel equals zero counts."""
 		return wrap(epq.SpectrumUtils.scale(1.0, -self.getCounts(epq.SpectrumUtils.minChannel(self)), self))
 
 	def offset(self, off):
 		"""s.offset(100.0)
-	Offset the spectrum channel data up by the specified number of counts."""
+		Offset the spectrum channel data up by the specified number of counts."""
 		return wrap(epq.SpectrumUtils.scale(1.0, off, self.wrapped))
 
 	def remap(self, zero, chWidth):
 		"""s.remap(-100.0,10.0)
-	Returns a new spectrum which is similar to this one except that the zero offset and channel width have been remapped to the specified values."""
+		Returns a new spectrum which is similar to this one except that the zero offset and channel width have been remapped to the specified values."""
 		return wrap(epq.SpectrumUtils.remap(self.wrapped, zero, chWidth))
 
 	def remap(self, det):
 		"""s.remap(det)
-	Returns a new spectrum which is similar to this one except that the zero offset and channel width have been remapped to be same as the specified detector."""
+		Returns a new spectrum which is similar to this one except that the zero offset and channel width have been remapped to be same as the specified detector."""
 		res = epq.SpectrumUtils.remap(self.wrapped, det.getZeroOffset(), det.getChannelWidth())
 		res.getProperties().setDetector(det)
 		return wrap(res)
 
 	def applyLLT(self):
 		"""s.applyLLT()
-	Returns a new spectrum which is similar to this one except that all channels below the energy identified by the ZeroPeakDiscriminator property as set to zero."""
+		Returns a new spectrum which is similar to this one except that all channels below the energy identified by the ZeroPeakDiscriminator property as set to zero."""
 		return wrap(epq.SpectrumUtils.applyZeroPeakDiscriminator(self.wrapped))
-   
+
 	def composition(self, prop=epq.SpectrumProperties.MicroanalyticalComposition):
 		"""s.composition()
-	Returns the composition of the specified spectrum if one is associated."""
+		Returns the composition of the specified spectrum if one is associated."""
 		return self.getProperties().getCompositionWithDefault(prop, None)
-	
+
 	def channel(self, energy):
-		'''channel(129.0)
-		Returns the channel associated with the specified energy in eV.'''
+		"""channel(129.0)
+		Returns the channel associated with the specified energy in eV.
+		"""
 		return epq.SpectrumUtils.channelForEnergy(self.wrapped, energy)
-	
+
 	def energy(self, channel):
-		'''energy(channel)
-		Returns the energy associated with the specfied channel.'''
+		"""energy(channel)
+		Returns the energy associated with the specfied channel.
+		"""
 		return epq.SpectrumUtils.minEnergyForChannel(self.wrapped, channel)
 
 	def kratios(self):
 		"""s.kratios()
-	Returns the k-ratios associated with the specified spectrum if one is associated or None."""
+		Returns the k-ratios associated with the specified spectrum if one is associated or None.
+		"""
 		return self.getProperties().getKRatioWithDefault(epq.SpectrumProperties.KRatios, None)
  
 
 def spectrumFromXML(filename):
-   """spectrumFromXML(filename)
-   Read a spectrum from a file saved using the ScriptableSpectrum.toXML(...) method. \
-   Returns a ScriptableSpectrum object."""
-   input = jio.FileInputStream(filename)
-   res = epq.BaseSpectrum.fromXML(input)
-   input.close()
-   return wrap(res)
+	"""spectrumFromXML(filename)
+	Read a spectrum from a file saved using the
+	ScriptableSpectrum.toXML(...) method.
+	Returns a ScriptableSpectrum object.
+	"""
+	input = jio.FileInputStream(filename)
+	res = epq.BaseSpectrum.fromXML(input)
+	input.close()
+	return wrap(res)
 
 PathSep = jl.System.getProperty("file.separator")
 
 def parseChemicalFormula(formula, density=0.0, name=None):
-   """parseChemicalFormula('CaCO3',[density=2.71])
-   Create a Material (or Composition if density omitted) object by parsing the chemical formula in the argument"""
-   if density > 0.0:
-	  res = epq.MaterialFactory.createCompound(formula, epq.ToSI.gPerCC(density))
-   else:
-	  res = epq.MaterialFactory.createCompound(formula)
-   if name:
-	   res.setName(name)
-   return res
+	"""parseChemicalFormula('CaCO3',[density=2.71]) \
+	Create a Material (or Composition if density omitted) object by \
+	parsing the chemical formula in the argument\
+	"""
+	if density > 0.0:
+		res = epq.MaterialFactory.createCompound(formula, epq.ToSI.gPerCC(density))
+	else:
+		res = epq.MaterialFactory.createCompound(formula)
+	if name:
+		res.setName(name)
+	return res
 	
-  
+
 def material(name, density=0.0):
-   '''material("TiO2",[density=4.27])
-The function creates a Composition object by first checking \
-the material database for a material with the specified name. \
-If the material isn't in the database it will then attempt to \
-parse the name as a chemical formula.  If both of these fail \
-the method will return None.'''
-   try:
-	   if isinstance(name, epq.Composition) or isinstance(name, epq.Material):
-		  res = name
-		  if density > 0.0:
-			 res = epq.Material(name, epq.ToSI.gPerCC(density))
-		  return res
-	   res = dt2.DTSA2.getSession().findStandard(name)
-	   if not res:
-		  res = parseChemicalFormula(name, density)
-	   if (density > 0.0) and res:
-		  res = epq.Material(res, epq.ToSI.gPerCC(density))
-   except jl.Throwable, ex:
-	   res = None
-   return res
+	"""
+	material("TiO2",[density=4.27])
+	The function creates a Composition object by first checking \
+	the material database for a material with the specified name. \
+	If the material isn't in the database it will then attempt to \
+	parse the name as a chemical formula.  If both of these fail \
+	the method will return None.
+"""
+	try:
+		if isinstance(name, epq.Composition) or isinstance(name, epq.Material):
+			res = name
+		if density > 0.0:
+			res = epq.Material(name, epq.ToSI.gPerCC(density))
+			return res
+		res = dt2.DTSA2.getSession().findStandard(name)
+		if not res:
+			res = parseChemicalFormula(name, density)
+		if (density > 0.0) and res:
+			res = epq.Material(res, epq.ToSI.gPerCC(density))
+	except jl.Throwable, ex:
+		res = None
+	return res
 
 def addTrace(m, elm, qty, norm=True):
-	"""addTrace(m, elm, qty, [norm=True]) Add a trace amount qty (in mass fraction) of elm to the material m.  Normalize \
-the result to 1.0 if norm=True otherwise just add qty of elm to the analytical total."""
+	"""addTrace(m, elm, qty, [norm=True]) Add a trace amount qty \
+	(in mass fraction) of elm to the material m.  Normalize \
+	the result to 1.0 if norm=True otherwise just add qty of elm to\
+	the analytical total.
+	"""
 	m = material(m)
 	elm = element(elm)
 	name = "%s + %g %s" % (m.toString(), qty, elm.toAbbrev())
@@ -486,12 +498,13 @@ the result to 1.0 if norm=True otherwise just add qty of elm to the analytical t
 	return res
 
 def element(name):
-   """element('Si')
-   Parses the argument string and returns the associated Element object."""
-   if isinstance(name, str):
-	  return epq.Element.byName(name)
-   else:
-	  return name
+	"""element('Si')
+	Parses the argument string and returns the associated Element object.
+	"""
+	if isinstance(name, str):
+		return epq.Element.byName(name)
+	else:
+		return name
 
 def elements(listOfElms):
    """elements(['Si','Fe','Na', epq.Element.Tb])
