@@ -13,6 +13,9 @@ wrkDir = homDir + "/Documents/git/dtsa2Scripts/utility"
 outDir = homDir + "/Documents/git/dtsa2Scripts/utility/output/"
 rptDir = wrkDir + '/test-mc3-simulate-Fe2O3/'
 
+# Note: On Win10 MSA files are in:
+# C:\Users\johnr\Documents\git\dtsa2scripts\utility\output
+
 
 bSaveSpc = True
 DataManager.clearSpectrumList()
