@@ -14,4 +14,5 @@ Analysis at 5kV using SiO and Pb standards
 Element	Mass Fraction	Atomic Fraction
 Oxygen	0.1569±0.0132	0.5953±0.0501
 Silicon	0.0912±0.0006	0.1971±0.0013
-Lead	0.7086±0.0025	0.2076±0.0007
+Lead 	0.7086±0.0025	0.2076±0.0007
+

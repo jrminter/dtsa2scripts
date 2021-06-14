@@ -64,7 +64,7 @@ jmg.ensureDir(simDir)
 bVerbose = False
 det      = findDetector("Oxford p4 05eV 4K")
 e0       =    15.0   # kV
-nTraj    =  20000    # trajectories
+nTraj    =  200    # trajectories
 lt       =    100    # sec
 pc       =     5.0   # nA
 imgSize  =   512     # pixel size for images
@@ -82,19 +82,19 @@ DataManager.clearSpectrumList()
 
 c = material("C", density=rhoC)
 eagleXG = mixture({"SiO2"  : 0.6447825,
-                  "Al2O3" : 0.1702057,
-                  "B2O3"  : 0.1051482,
-                  "CaO"   : 0.0542376,
-                  "MgO"   : 0.0128153,
-                  "SrO"   : 0.0082368,
-                  "SnO2"  : 0.0015215,
-                  "BaO"   : 0.0012188,
-                  "Fe2O3" : 0.0005078,
-                  "Sb2O3" : 0.0004635,
-                  "As2O3" : 0.0003145,
-                  "ZrO2"  : 0.0002938,
-                  "TiO2"  : 0.0002540
-                 },
+                   "Al2O3" : 0.1702057,
+                   "B2O3"  : 0.1051482,
+                   "CaO"   : 0.0542376,
+                   "MgO"   : 0.0128153,
+                   "SrO"   : 0.0082368,
+                   "SnO2"  : 0.0015215,
+                   "BaO"   : 0.0012188,
+                   "Fe2O3" : 0.0005078,
+                   "Sb2O3" : 0.0004635,
+                   "As2O3" : 0.0003145,
+                   "ZrO2"  : 0.0002938,
+                   "TiO2"  : 0.0002540
+                  },
                  density=2.36,
                  name="Eagle XG")
 
