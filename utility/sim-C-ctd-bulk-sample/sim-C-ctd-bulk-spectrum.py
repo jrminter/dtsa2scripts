@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
-"""sim-C-ctd-CorningEagleXG-15kV.py
+
+"""sim-C-ctd-bulk-spectrum.py
 
    Date     Who  Comment
 ----------  ---  -----------------------------------------------
-2017-05-19  JRM  Simulation EDS spectra from bulk Corning Eagle
-                 XG glass
-2017-05-20  JRM  Fix densities and re-run
-
-2018-01-13  JRM  Move to proj directory. Do path right...
-                 Elapse: 0:14:47.2 on crunch for 20,000 trajectories.
-2018-01-31  JRM  Move to new micture model to compare with penepma
-                 bilayer.
-
+2021-06-11  JRM  Simulation EDS spectra from bulk specimen
 
 """
 
@@ -48,13 +41,13 @@ homDir  = os.environ['HOME']
 homDir  = homDir.replace('\\','/')
 rPrjDir = "/Documents/git/dtsa2Scripts"
 relIn   = rPrjDir + "/utility"
-relOut  = rPrjDir + "/sim-Eagle-XG"
+relOut  = rPrjDir + "/sim-C-ctd-bulk-spectrum"
 
 inDir   = homDir + relIn
 outDir  = homDir + relOut
 jmg.ensureDir(outDir)
 
-rptDir  = inDir + '/sim-C-ctd-CorningEagleXG-15kV Results/'
+rptDir  = inDir + '/sim-C-ctd-bulk-spectrum Results/'
 
 spcDir = outDir + "/sim"
 simDir = outDir + "/sim"
@@ -64,7 +57,7 @@ jmg.ensureDir(simDir)
 bVerbose = False
 det      = findDetector("Oxford p4 05eV 4K")
 e0       =    15.0   # kV
-nTraj    =  200    # trajectories
+nTraj    =    200    # trajectories - quick test
 lt       =    100    # sec
 pc       =     5.0   # nA
 imgSize  =   512     # pixel size for images
@@ -73,13 +66,14 @@ vmrlEl   =    40     # number of el for VMRL
 tCNm     =    20.0   # thickness of C on EagleXG in nm
 przDepUm =     1.0   # phirhoz depth in microns
 rhoC     =     2.267 # C density
-rhoEXG   =     2.36  # Eagle XG density 
+rhoSpc   =     2.36  # Eagle XG density  - change density as needed...
 
 
 dose = pc * lt  # na-sec"
 
 DataManager.clearSpectrumList()
 
+# This is a place-holder for a complicated glass...
 c = material("C", density=rhoC)
 eagleXG = mixture({"SiO2"  : 0.6447825,
                    "Al2O3" : 0.1702057,
@@ -99,21 +93,24 @@ eagleXG = mixture({"SiO2"  : 0.6447825,
                  name="Eagle XG")
 
 
-
+# set up the layers...
 layers = [ [c,   tCNm*1.0e-9],
            [eagleXG, 50.0e-6]
          ]
 
+# set up transitions for the complicated material
 xrts = []
 
 trs = mc3.suggestTransitions(eagleXG, e0)
 for tr in trs:
     xrts.append(tr)
 
+# add transitions for the C...
 trs = mc3.suggestTransitions(c, e0)
 for tr in trs:
     xrts.append(tr)
-
+    
+# setup the extra parameters...
 
 
 xtraParams={}
@@ -127,6 +124,9 @@ xtraParams.update(mc3.configureOutput(simDir))
 
 print(xtraParams)
 
+"""
+
+# setup a format string for the real glass...
 fmtS = "%g-nm-C-on-EagleXG-at-%g-kV"
 
 print("Starting simulation")
@@ -141,9 +141,24 @@ fi += sName
 fi += "-%g-Traj.msa" % (nTraj)
 multiLaySim.save(fi)
 
+"""
+
 # clean up cruft
 shutil.rmtree(rptDir)
 print "Done!"
+
+end = time.time()
+delta = (end-start)/60
+msg = "This script required %.3f min" % delta
+print msg
+if(delta > 60):
+    delta = delta/60
+    msg = "...or %.3f hr" % delta
+    print msg
+
+
+
+
 
 end = time.time()
 delta = (end-start)/60
