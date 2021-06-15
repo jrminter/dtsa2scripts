@@ -1,8 +1,9 @@
 # mc3Bulk.py
 
-# simple bulk simulation with specific transitons
+# simple bulk simulation with specific transitions
 # Date        Ver  Who  Notes
 # 2015-10-01 0.90  JRM  Initial example. Verified with Iona v.2015-10-01
+# 2021-06-14 0.91  JRM MINOR EDIT
 
 sys.packageManager.makeJavaPackage("gov.nist.microanalysis.NISTMonte.Gen3", "CharacteristicXRayGeneration3, BremsstrahlungXRayGeneration3, FluorescenceXRayGeneration3, XRayTransport3", None)
 import dtsa2.mcSimulate3 as mc3
@@ -15,7 +16,7 @@ det       = findDetector("Probe") # DTSA-II default detector, use yours
 e0        =   20     # keV
 pc        =    2.5   # nA
 lt        =  100.0   # sec
-imgSzUm   =    5.0   # physical size of images in mucrons
+imgSzUm   =    5.0   # physical size of images in microns
 imgSizePx =  512     # size of images in pixels
 nTraj     = 1000     # number of trajectories
 vmrlEl    =   40     # number of el for VMRL
